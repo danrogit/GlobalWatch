@@ -6,6 +6,7 @@
 
 import { db } from '../src/lib/db/index';
 import { runEnhancedIngestionPipeline } from '../src/lib/ingestion/enhanced-pipeline';
+import { generateEventsFromEnrichedArticles } from '../src/lib/ingestion/event-generation';
 
 (async () => {
     try {
@@ -20,6 +21,10 @@ import { runEnhancedIngestionPipeline } from '../src/lib/ingestion/enhanced-pipe
             enrichmentBatchSize: 50, // Process more at once
             enrichmentDelay: 500 // Faster processing
         });
+
+        // Generate events from enriched articles
+        console.log('\n🗺️ Generating events from enriched articles...');
+        await generateEventsFromEnrichedArticles();
 
         console.log('\n✅ Manual run complete.');
         process.exit(0);
