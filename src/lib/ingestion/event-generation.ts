@@ -64,6 +64,7 @@ export async function generateEventsFromEnrichedArticles(): Promise<void> {
                 const eventData = {
                     id: article.id,
                     title: displayTitle,
+                    danishTitle: displayTitle, // Explicitly add for frontend/SEO compatibility
                     description: article.description || '',
                     lat: article.lat,
                     lon: article.lon,

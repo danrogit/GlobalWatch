@@ -109,19 +109,27 @@ export function loadFeedUrls(): string[] {
     try {
         const xmlContent = fs.readFileSync(xmlPath, 'utf8');
 
-        // Extract all URLs from the file (one per line)
-        const urls = xmlContent
-            .split('\n')
-            .map(line => line.trim())
-            .filter(line => line.startsWith('http'))
+        // Extract all URLs from the file (one per line or XML attributes)
+        // Since rss.xml format can vary, let's extract http urls broadly
+        const rawUrls = xmlContent.match(/https?:\/\/[^"\s<]+/g) || [];
+
+        const urls = [...new Set(rawUrls)] // Unique URLs
             .filter(url =>
                 !url.includes('google.com/search') &&
                 !url.includes('example.com') &&
-                !url.includes('w3.org') &&
                 url.length > 10
             );
 
-        console.log(`[RSS] Loaded ${urls.length} feed URLs from rss.xml`);
+        // Sort: DK domains first
+        urls.sort((a, b) => {
+            const isDkA = a.includes('.dk');
+            const isDkB = b.includes('.dk');
+            if (isDkA && !isDkB) return -1;
+            if (!isDkA && isDkB) return 1;
+            return 0;
+        });
+
+        console.log(`[RSS] Loaded ${urls.length} feed URLs from rss.xml (DK prioritized)`);
         return urls;
     } catch (error) {
         console.error('[RSS] Failed to load rss.xml:', error);
