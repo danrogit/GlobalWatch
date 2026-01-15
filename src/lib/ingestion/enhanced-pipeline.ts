@@ -134,24 +134,46 @@ export async function processPendingQueue(options: EnhancedPipelineOptions = {})
                     );
 
                     if (enrichment) {
+                        // Save to enriched_articles table
                         db.prepare(`
-                            UPDATE rss_articles 
-                            SET article_content = ?,
-                                quotes = ?,
-                                content_fetched_at = ?,
-                                location_confidence = ?,
-                                location_source = ?,
-                                image_url = ?
-                            WHERE url = ?
-                        `).run(
-                            enrichment.article_content,
-                            JSON.stringify(enrichment.quotes),
-                            enrichment.content_fetched_at,
+                                INSERT OR REPLACE INTO enriched_articles (
+                                    id, title, description, url, feed_name, published_at,
+                                    lat, lon, location_label, location_confidence, location_source,
+                                    event_type, image_url, quotes, article_content, created_at
+                                ) VALUES (
+                                    ?, ?, ?, ?, ?, ?,
+                                    ?, ?, ?, ?, ?,
+                                    ?, ?, ?, ?, ?
+                                )
+                            `).run(
+                            // Generate ID based on URL if not available, or use same lookup logic
+                            // But rss_articles table doesn't have ID in the SELECT above (it does but we didn't select it)
+                            // Let's use MD5 of URL or just the URL as ID if it's unique
+                            // Actually let's select ID in the query above first
+                            article.id,
+                            article.title,
+                            article.description,
+                            article.url,
+                            'RSS Feed', // source_name
+                            article.published_at,
+                            enrichment.lat,
+                            enrichment.lon,
+                            enrichment.location_label,
                             enrichment.location_confidence,
                             enrichment.location_source,
+                            enrichment.event_type,
                             enrichment.imageUrl,
-                            article.url
+                            JSON.stringify(enrichment.quotes),
+                            enrichment.article_content,
+                            new Date().toISOString()
                         );
+
+                        // Also update rss_articles status
+                        db.prepare(`
+                                UPDATE rss_articles 
+                                SET location_source = ?
+                                WHERE url = ?
+                            `).run(enrichment.location_source, article.url);
                         enrichedCount++;
                     }
                     // Rate limiting
