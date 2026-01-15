@@ -130,8 +130,8 @@ export async function enrichArticleLocation(
             lon: 12.5683,
             label: 'Unknown Location',
             confidence: 0.05,
-            source: 'default-fallback',
-            type: 'LOC',
+            source: 'country-fallback',
+            type: 'city',
         };
     }
 
