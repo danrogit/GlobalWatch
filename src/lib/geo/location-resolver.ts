@@ -21,9 +21,9 @@ export interface ResolvedLocation {
  * Resolve location entities to coordinates
  * Applies disambiguation rules and confidence scoring
  */
-export function resolveLocation(
+export async function resolveLocation(
     entities: Array<LocationEntity & { confidence: number }>
-): ResolvedLocation | null {
+): Promise<ResolvedLocation | null> {
     if (entities.length === 0) return null;
 
     // Sort by confidence descending
@@ -206,9 +206,9 @@ function getCountryCoords(countryName: string): CityCoords | null {
 /**
  * Resolve multiple locations (for events with primary + secondary locations)
  */
-export function resolveMultipleLocations(
+export async function resolveMultipleLocations(
     entities: Array<LocationEntity & { confidence: number }>
-): { primary: ResolvedLocation | null; secondary: ResolvedLocation | null } {
+): Promise<{ primary: ResolvedLocation | null; secondary: ResolvedLocation | null }> {
     if (entities.length === 0) {
         return { primary: null, secondary: null };
     }
@@ -217,13 +217,13 @@ export function resolveMultipleLocations(
     const sorted = [...entities].sort((a, b) => b.confidence - a.confidence);
 
     // Primary location (highest confidence)
-    const primary = resolveLocation([sorted[0]]);
+    const primary = await resolveLocation([sorted[0]]);
 
     // Secondary location (second highest, if significantly different)
     let secondary: ResolvedLocation | null = null;
     if (sorted.length > 1) {
         const secondEntity = sorted[1];
-        const secondResolved = resolveLocation([secondEntity]);
+        const secondResolved = await resolveLocation([secondEntity]);
 
         // Only include if it's a different location
         if (secondResolved && primary &&
