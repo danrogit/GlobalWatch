@@ -15,9 +15,11 @@ export async function generateEventsFromEnrichedArticles(): Promise<void> {
     try {
         // Get enriched articles that don't have events yet
         const articles = db.prepare(`
-            SELECT * FROM enriched_articles 
-            WHERE event_generated IS NULL OR event_generated = 0
-            ORDER BY published_at DESC 
+            SELECT e.*, r.danish_title 
+            FROM enriched_articles e
+            LEFT JOIN rss_articles r ON e.url = r.url
+            WHERE e.event_generated IS NULL OR e.event_generated = 0
+            ORDER BY e.published_at DESC 
             LIMIT 100
         `).all() as any[];
 
@@ -53,10 +55,15 @@ export async function generateEventsFromEnrichedArticles(): Promise<void> {
                     continue;
                 }
 
+                // Use Danish title if available, otherwise fallback to original
+                const displayTitle = article.danish_title || article.title;
+
                 // Create event JSON
+                const normalizedTitle = displayTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+
                 const eventData = {
                     id: article.id,
-                    title: article.title,
+                    title: displayTitle,
                     description: article.description || '',
                     lat: article.lat,
                     lon: article.lon,
@@ -71,13 +78,13 @@ export async function generateEventsFromEnrichedArticles(): Promise<void> {
                     imageUrl: article.image_url,
                     quotes: article.quotes ? JSON.parse(article.quotes) : [],
                     content: article.article_content,
-                    slug: article.id,
+                    slug: normalizedTitle,
                 };
 
                 // Insert event
                 insertEvent.run({
                     event_id: article.id,
-                    title: article.title,
+                    title: displayTitle,
                     summary: article.description || '',
                     category: article.event_type || 'other',
                     subcategory: '',
@@ -88,7 +95,7 @@ export async function generateEventsFromEnrichedArticles(): Promise<void> {
                     verification_status: 'reported',
                     confidence_score: article.location_confidence || 0.5,
                     json_data: JSON.stringify(eventData),
-                    normalized_title: article.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+                    normalized_title: normalizedTitle,
                 });
 
                 // Mark as processed
