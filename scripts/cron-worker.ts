@@ -6,6 +6,7 @@
 
 import { runEnhancedIngestionPipeline } from '../src/lib/ingestion/enhanced-pipeline';
 import { generateEventsFromEnrichedArticles } from '../src/lib/ingestion/event-generation';
+import { initDatabase } from '../src/lib/db/index';
 
 const INTERVAL_MS = 15 * 60 * 1000; // 15 minutes
 
@@ -36,6 +37,7 @@ async function runCronJob() {
 
 // Run immediately on start
 console.log('🚀 Starting Cron Worker...');
+initDatabase(); // Ensure DB tables exist
 runCronJob();
 
 // Then run every 15 minutes
