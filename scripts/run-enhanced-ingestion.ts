@@ -6,7 +6,6 @@
 
 import { db } from '../src/lib/db/index';
 import { runEnhancedIngestionPipeline } from '../src/lib/ingestion/enhanced-pipeline';
-import { generateEventsFromEnrichedArticles } from '../src/lib/ingestion/event-generation';
 
 (async () => {
     try {
