@@ -21,9 +21,6 @@ import { runEnhancedIngestionPipeline } from '../src/lib/ingestion/enhanced-pipe
             enrichmentDelay: 500 // Faster processing
         });
 
-        // Generate events
-        await generateEventsFromEnrichedArticles();
-
         console.log('\n✅ Manual run complete.');
         process.exit(0);
 
