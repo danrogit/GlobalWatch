@@ -100,7 +100,7 @@ export async function processPendingQueue(options: EnhancedPipelineOptions = {})
     const pendingArticles = db.prepare(`
         SELECT url, title, description, published_at 
         FROM rss_articles 
-        WHERE geopolitics_score >= 30 
+        WHERE geopolitics_score >= 15
         AND location_source IS NULL
         ORDER BY published_at DESC
         LIMIT 50

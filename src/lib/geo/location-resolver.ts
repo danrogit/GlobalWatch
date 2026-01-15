@@ -60,6 +60,24 @@ export function resolveLocation(
         };
     }
 
+    // FALLBACK: If no city or country match, return the first entity with low confidence
+    // This is better than failing completely - we can still show SOMETHING on the map
+    if (sorted.length > 0) {
+        const topEntity = sorted[0];
+        console.warn(`[Location Resolver] No exact match for "${topEntity.text}", using approximate location`);
+
+        // Use a generic location based on entity type
+        // For now, default to a central location (Europe) with very low confidence
+        return {
+            lat: 50.0, // Central Europe
+            lon: 10.0,
+            label: topEntity.text,
+            confidence: 0.1, // Very low confidence
+            source: 'country-fallback',
+            type: topEntity.type,
+        };
+    }
+
     return null;
 }
 

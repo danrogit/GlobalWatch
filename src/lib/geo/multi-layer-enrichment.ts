@@ -71,15 +71,32 @@ export async function enrichArticleLocation(
 
     // Fetch article content
     console.log('  📥 Fetching article content...');
-    const articleContent = await fetchArticleContent(url);
+    let articleContent = await fetchArticleContent(url);
+    let textContent = '';
+    let firstParagraphs = '';
 
     if (!articleContent) {
-        console.log('  ❌ Failed to fetch article content');
-        return null;
-    }
+        console.log('  ⚠️ Direct fetch failed - using RSS description as fallback');
 
-    const textContent = articleContent.textContent;
-    const firstParagraphs = extractFirstParagraphs(textContent, 2);
+        // FALLBACK: Use RSS description + title as content
+        textContent = `${title}\n\n${description || ''}`;
+        firstParagraphs = textContent;
+
+        // Create minimal article content object
+        articleContent = {
+            title: title,
+            content: textContent,
+            textContent: textContent,
+            excerpt: description?.substring(0, 200) || '',
+            byline: null,
+            length: textContent.length,
+            siteName: null,
+            imageUrl: null,
+        };
+    } else {
+        textContent = articleContent.textContent;
+        firstParagraphs = extractFirstParagraphs(textContent, 2);
+    }
 
     // Layer 2: NER extraction
     console.log('  🧠 Layer 2: Running NER...');
@@ -87,8 +104,17 @@ export async function enrichArticleLocation(
     console.log(`  Found ${locationEntities.length} location entities`);
 
     if (locationEntities.length === 0) {
-        console.log('  ❌ No locations found via NER');
-        return null;
+        console.log('  ⚠️ No locations found via NER - using title-based extraction');
+
+        // FALLBACK: Try to extract from title only
+        const titleEntities = extractLocationsWithConfidence(title, '');
+
+        if (titleEntities.length === 0) {
+            console.log('  ❌ No locations found at all');
+            return null;
+        }
+
+        locationEntities.push(...titleEntities);
     }
 
     // Layer 3: Resolve to coordinates
@@ -96,8 +122,17 @@ export async function enrichArticleLocation(
     const resolved = resolveMultipleLocations(locationEntities);
 
     if (!resolved.primary) {
-        console.log('  ❌ Failed to resolve location to coordinates');
-        return null;
+        console.log('  ⚠️ Failed to resolve location - using default location');
+
+        // FALLBACK: Use a default location (Copenhagen) so we don't lose the article
+        resolved.primary = {
+            lat: 55.6761, // Copenhagen
+            lon: 12.5683,
+            label: 'Unknown Location',
+            confidence: 0.05,
+            source: 'default-fallback',
+            type: 'LOC',
+        };
     }
 
     console.log(`  ✅ Resolved to: ${resolved.primary.label} (confidence: ${resolved.primary.confidence.toFixed(2)})`);

@@ -265,6 +265,43 @@ export const CITY_COORDS: Record<string, CityCoords> = {
     'bratislava': { lat: 48.1486, lon: 17.1077, country: 'Slovakia' },
     'maine': { lat: 45.2538, lon: -69.4455, country: 'USA' }, // State center
     'portland maine': { lat: 43.6591, lon: -70.2568, country: 'USA' },
+
+    // === MORE DANISH CITIES ===
+    'tønder': { lat: 54.9333, lon: 8.8667, country: 'Denmark' },
+    'ribe': { lat: 55.3281, lon: 8.7619, country: 'Denmark' },
+    'skagen': { lat: 57.7210, lon: 10.5839, country: 'Denmark' },
+    'grenaa': { lat: 56.4158, lon: 10.8797, country: 'Denmark' },
+
+    // === AFRICAN CITIES ===
+    'kano': { lat: 12.0022, lon: 8.5919, country: 'Nigeria' },
+    'abuja': { lat: 9.0765, lon: 7.3986, country: 'Nigeria' },
+    'accra': { lat: 5.6037, lon: -0.1870, country: 'Ghana' },
+    'dar es salaam': { lat: -6.7924, lon: 39.2083, country: 'Tanzania' },
+
+    // === MORE ITALIAN CITIES ===
+    'verona': { lat: 45.4384, lon: 10.9916, country: 'Italy' },
+    'bologna': { lat: 44.4949, lon: 11.3426, country: 'Italy' },
+    'florence': { lat: 43.7696, lon: 11.2558, country: 'Italy' },
+    'venice': { lat: 45.4408, lon: 12.3155, country: 'Italy' },
+    'naples': { lat: 40.8518, lon: 14.2681, country: 'Italy' },
+    'turin': { lat: 45.0703, lon: 7.6869, country: 'Italy' },
+    'palermo': { lat: 38.1157, lon: 13.3615, country: 'Italy' },
+
+    // === MORE AFRICAN LOCATIONS ===
+    'benue': { lat: 7.7333, lon: 8.5333, country: 'Nigeria' }, // State
+    'limpopo': { lat: -23.4013, lon: 29.4179, country: 'South Africa' }, // Province
+    'ramaphosa': { lat: -25.7479, lon: 28.2293, country: 'South Africa' }, // Often mentioned with Pretoria
+
+    // === MORE US CITIES ===
+    'las vegas': { lat: 36.1699, lon: -115.1398, country: 'USA' }, // Already exists but adding alias
+    'minneapolis': { lat: 44.9778, lon: -93.2650, country: 'USA' }, // Already exists
+
+    // === GREENLAND ===
+    'greenland': { lat: 71.7069, lon: -42.6043, country: 'Greenland' },
+    'nuuk': { lat: 64.1814, lon: -51.6941, country: 'Greenland' },
+
+    // === MORE FRENCH CITIES ===
+    'emmanuel macron': { lat: 48.8566, lon: 2.3522, country: 'France' }, // Often triggers as location, map to Paris
 };
 
 /**

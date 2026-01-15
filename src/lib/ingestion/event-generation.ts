@@ -58,11 +58,11 @@ const insertEvent = db.prepare(`
 export async function generateEventsFromEnrichedArticles() {
     console.log('[Event Generation] Starting event generation from enriched articles...');
 
-    // 1. Fetch recent enriched articles (last 3 days to allow updates)
+    // 1. Fetch recent articles (last 3 days) - don't require location_source
     const articles = db.prepare(`
         SELECT * FROM rss_articles 
-        WHERE location_source IS NOT NULL 
-        AND published_at > date('now', '-3 days')
+        WHERE published_at > date('now', '-3 days')
+        AND geopolitics_score >= 15
         ORDER BY published_at DESC
     `).all() as any[];
 

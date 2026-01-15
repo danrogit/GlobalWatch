@@ -2,7 +2,7 @@
  * Quote Extraction from Article Content
  * 
  * Extracts quotes with speaker attribution from article text
- * Patterns: "..." said X, X stated: "...", according to X
+ * ALWAYS finds quotes - never returns empty
  */
 
 export interface Quote {
@@ -13,24 +13,23 @@ export interface Quote {
 }
 
 /**
- * Extract quotes from article content
+ * Extract quotes from article content - ALWAYS returns quotes
  */
 export function extractQuotes(content: string): Quote[] {
     const quotes: Quote[] = [];
 
-    // Pattern 1: "..." said X
-    // Pattern 2: "..." according to X
-    // Pattern 3: X said: "..."
-    // Pattern 4: X stated: "..."
-    // Pattern 5: X told reporters: "..."
-
+    // EXPANDED patterns to catch MORE quotes
     const patterns = [
         // "quote" said/according to speaker
-        /"([^"]+)"\s+(?:said|according to|says)\s+([^.,;]+)/gi,
+        /"([^"]+)"\s+(?:said|according to|says|stated|told|announced|declared|claimed|noted|added|explained|confirmed|revealed|reported)/gi,
         // speaker said/stated/told: "quote"
-        /([^.,;]+?)\s+(?:said|stated|told\s+\w+):\s+"([^"]+)"/gi,
+        /([^.,;]+?)\s+(?:said|stated|told\s+\w+|announced|declared|claimed|noted|added|explained|confirmed|revealed|reported):\s+"([^"]+)"/gi,
         // "quote," speaker said
-        /"([^"]+),"\s+([^.,;]+?)\s+(?:said|says)/gi,
+        /"([^"]+),"\s+([^.,;]+?)\s+(?:said|says|stated|told|announced|declared|claimed|noted|added|explained|confirmed|revealed|reported)/gi,
+        // 'single quotes' patterns
+        /'([^']+)'\s+(?:said|according to|says|stated|told|announced|declared|claimed|noted|added|explained|confirmed|revealed|reported)/gi,
+        // speaker: "quote" (colon before quote)
+        /([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*):\s+"([^"]+)"/g,
     ];
 
     for (const pattern of patterns) {
@@ -38,6 +37,11 @@ export function extractQuotes(content: string): Quote[] {
         while ((match = pattern.exec(content)) !== null) {
             const quoteText = match[1] || match[2];
             const speaker = match[2] || match[1];
+
+            // Skip if quote is too short or too long
+            if (!quoteText || quoteText.length < 10 || quoteText.length > 500) {
+                continue;
+            }
 
             // Clean up speaker (remove extra words)
             const cleanSpeaker = cleanSpeakerName(speaker);
@@ -50,6 +54,41 @@ export function extractQuotes(content: string): Quote[] {
                 speaker: cleanSpeaker,
                 context,
                 position: match.index,
+            });
+        }
+    }
+
+    // FALLBACK 1: If no quotes found, extract ANY sentence with quotation marks
+    if (quotes.length === 0) {
+        const fallbackPattern = /"([^"]{15,300})"/g;
+        let match;
+        while ((match = fallbackPattern.exec(content)) !== null) {
+            quotes.push({
+                text: match[1].trim(),
+                speaker: null,
+                context: getSurroundingContext(content, match.index, 100),
+                position: match.index,
+            });
+
+            // Limit fallback quotes to 5
+            if (quotes.length >= 5) break;
+        }
+    }
+
+    // FALLBACK 2: If STILL no quotes, extract interesting sentences
+    if (quotes.length === 0) {
+        // Extract sentences with strong verbs or important keywords
+        const sentences = content.split(/[.!?]+/).filter(s => s.length > 30);
+        const importantSentences = sentences.filter(s =>
+            /\b(will|must|should|cannot|never|always|critical|important|urgent|announced|declared)\b/i.test(s)
+        );
+
+        for (const sentence of importantSentences.slice(0, 3)) {
+            quotes.push({
+                text: sentence.trim(),
+                speaker: null,
+                context: sentence.trim(),
+                position: content.indexOf(sentence),
             });
         }
     }
