@@ -10,6 +10,7 @@ import {
 import Footer from '@/components/Footer';
 import TranslatedSnippets from '@/components/TranslatedSnippets';
 import EventMap from '@/components/EventMap/EventMap';
+import EventImage from '@/components/EventImage/EventImage';
 import '@/app/event.css';
 
 interface PageProps {
@@ -227,16 +228,10 @@ export default async function EventPage({ params }: PageProps) {
 
                             {/* Featured Image */}
                             {event.imageUrl && (
-                                <div className="event-featured-image" style={{ marginBottom: '24px', borderRadius: '12px', overflow: 'hidden' }}>
-                                    <img
-                                        src={event.imageUrl}
-                                        alt={event.danishTitle}
-                                        style={{ width: '100%', height: 'auto', maxHeight: '500px', objectFit: 'cover' }}
-                                        onError={(e) => {
-                                            (e.target as HTMLImageElement).style.display = 'none';
-                                        }}
-                                    />
-                                </div>
+                                <EventImage
+                                    src={event.imageUrl}
+                                    alt={event.danishTitle}
+                                />
                             )}
 
                             {/* Detaljeret beskrivelse */}
