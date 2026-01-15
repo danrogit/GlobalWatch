@@ -119,7 +119,7 @@ export async function enrichArticleLocation(
 
     // Layer 3: Resolve to coordinates
     console.log('  📍 Layer 3: Resolving locations...');
-    const resolved = resolveMultipleLocations(locationEntities);
+    const resolved = await resolveMultipleLocations(locationEntities);
 
     if (!resolved.primary) {
         console.log('  ⚠️ Failed to resolve location - using default location');
