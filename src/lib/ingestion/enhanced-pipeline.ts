@@ -98,7 +98,7 @@ export async function processPendingQueue(options: EnhancedPipelineOptions = {})
 
     // 1. Fetch pending articles (High score, no location source yet)
     const pendingArticles = db.prepare(`
-        SELECT url, title, description, published_at 
+        SELECT id, url, title, description, published_at 
         FROM rss_articles 
         WHERE geopolitics_score >= 15
         AND location_source IS NULL
