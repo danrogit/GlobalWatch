@@ -89,6 +89,29 @@ export function initDatabase() {
         )
     `);
 
+    // 2.5️⃣ Enriched Articles (with location data)
+    db.exec(`
+        CREATE TABLE IF NOT EXISTS enriched_articles (
+            id TEXT PRIMARY KEY,
+            title TEXT,
+            description TEXT,
+            url TEXT UNIQUE,
+            feed_name TEXT,
+            published_at TEXT,
+            lat REAL,
+            lon REAL,
+            location_label TEXT,
+            location_confidence REAL,
+            location_source TEXT,
+            event_type TEXT,
+            image_url TEXT,
+            quotes TEXT,
+            article_content TEXT,
+            event_generated INTEGER DEFAULT 0,
+            created_at TEXT
+        )
+    `);
+
     // 3️⃣ Geopolitical Events
     db.exec(`
         CREATE TABLE IF NOT EXISTS geo_events (
