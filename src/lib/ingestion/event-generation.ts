@@ -5,8 +5,6 @@
  */
 
 import { db } from '../db/index';
-import { enrichedArticles, geoEvents } from '../db/schema';
-import { sql, desc, isNull } from 'drizzle-orm';
 
 /**
  * Generate events from enriched articles
@@ -16,17 +14,35 @@ export async function generateEventsFromEnrichedArticles(): Promise<void> {
 
     try {
         // Get enriched articles that don't have events yet
-        const articles = await db
-            .select()
-            .from(enrichedArticles)
-            .where(isNull(enrichedArticles.event_generated))
-            .orderBy(desc(enrichedArticles.published_at))
-            .limit(100);
+        const articles = db.prepare(`
+            SELECT * FROM enriched_articles 
+            WHERE event_generated IS NULL OR event_generated = 0
+            ORDER BY published_at DESC 
+            LIMIT 100
+        `).all() as any[];
 
         console.log(`[Event Generation] Found ${articles.length} articles to process`);
 
         let created = 0;
         let skipped = 0;
+
+        const insertEvent = db.prepare(`
+            INSERT INTO geo_events (
+                event_id, title, summary, category, subcategory, countries,
+                event_date, detected_at, source_count, verification_status,
+                confidence_score, json_data, normalized_title
+            ) VALUES (
+                @event_id, @title, @summary, @category, @subcategory, @countries,
+                @event_date, @detected_at, @source_count, @verification_status,
+                @confidence_score, @json_data, @normalized_title
+            )
+        `);
+
+        const markProcessed = db.prepare(`
+            UPDATE enriched_articles 
+            SET event_generated = 1 
+            WHERE id = ?
+        `);
 
         for (const article of articles) {
             try {
@@ -37,29 +53,46 @@ export async function generateEventsFromEnrichedArticles(): Promise<void> {
                     continue;
                 }
 
-                // Create event
-                await db.insert(geoEvents).values({
+                // Create event JSON
+                const eventData = {
+                    id: article.id,
                     title: article.title,
                     description: article.description || '',
                     lat: article.lat,
                     lon: article.lon,
-                    location_label: article.location_label || 'Unknown',
-                    location_confidence: article.location_confidence || 0.5,
-                    event_type: article.event_type || 'other',
-                    source_url: article.url,
-                    source_name: article.feed_name || 'Unknown',
-                    published_at: article.published_at,
-                    image_url: article.image_url,
-                    quotes: article.quotes || [],
-                    article_content: article.article_content,
-                    created_at: new Date(),
+                    location: article.location_label || 'Unknown',
+                    confidence: article.location_confidence || 0.5,
+                    category: article.event_type || 'other',
+                    timestamp: article.published_at,
+                    sources: [{
+                        name: article.feed_name || 'Unknown',
+                        url: article.url,
+                    }],
+                    imageUrl: article.image_url,
+                    quotes: article.quotes ? JSON.parse(article.quotes) : [],
+                    content: article.article_content,
+                    slug: article.id,
+                };
+
+                // Insert event
+                insertEvent.run({
+                    event_id: article.id,
+                    title: article.title,
+                    summary: article.description || '',
+                    category: article.event_type || 'other',
+                    subcategory: '',
+                    countries: JSON.stringify([]),
+                    event_date: article.published_at,
+                    detected_at: new Date().toISOString(),
+                    source_count: 1,
+                    verification_status: 'reported',
+                    confidence_score: article.location_confidence || 0.5,
+                    json_data: JSON.stringify(eventData),
+                    normalized_title: article.title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
                 });
 
                 // Mark as processed
-                await db
-                    .update(enrichedArticles)
-                    .set({ event_generated: true })
-                    .where(sql`${enrichedArticles.id} = ${article.id}`);
+                markProcessed.run(article.id);
 
                 created++;
             } catch (error: any) {
