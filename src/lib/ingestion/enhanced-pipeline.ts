@@ -12,7 +12,7 @@ import { fetchAllFeeds } from '../rss/fetcher';
 import { calculateGeopoliticsScore } from './scoring';
 import { db } from '../db/index';
 import { enrichArticleLocation } from '../geo/multi-layer-enrichment';
-import { translateToDanish, isLibreTranslateAvailable } from '../translation/libretranslate';
+import { translateToDanish } from '../translate/danish';
 
 export interface EnhancedPipelineOptions {
     maxArticlesPerFeed?: number;
@@ -113,12 +113,7 @@ export async function processPendingQueue(options: EnhancedPipelineOptions = {})
 
     console.log(`\n[Queue] Processing ${pendingArticles.length} pending articles...`);
 
-    // Check LibreTranslate availability
-    let translationAvailable = false;
-    if (enableTranslation) {
-        translationAvailable = await isLibreTranslateAvailable();
-        console.log(`  LibreTranslate: ${translationAvailable ? '✅ Available' : '❌ Not available'}`);
-    }
+    // Translation is handled automatically by the translator with fallback
 
     // Process batch
     for (let i = 0; i < pendingArticles.length; i += enrichmentBatchSize) {
@@ -134,8 +129,9 @@ export async function processPendingQueue(options: EnhancedPipelineOptions = {})
                     );
 
                     if (enrichment) {
-                        // Save to enriched_articles table
-                        db.prepare(`
+                        try {
+                            // Save to enriched_articles table
+                            db.prepare(`
                                 INSERT OR REPLACE INTO enriched_articles (
                                     id, title, description, url, feed_name, published_at,
                                     lat, lon, location_label, location_confidence, location_source,
@@ -146,52 +142,60 @@ export async function processPendingQueue(options: EnhancedPipelineOptions = {})
                                     ?, ?, ?, ?, ?
                                 )
                             `).run(
-                            // Generate ID based on URL if not available, or use same lookup logic
-                            // But rss_articles table doesn't have ID in the SELECT above (it does but we didn't select it)
-                            // Let's use MD5 of URL or just the URL as ID if it's unique
-                            // Actually let's select ID in the query above first
-                            article.id,
-                            article.title,
-                            article.description,
-                            article.url,
-                            'RSS Feed', // source_name
-                            article.published_at,
-                            enrichment.lat,
-                            enrichment.lon,
-                            enrichment.location_label,
-                            enrichment.location_confidence,
-                            enrichment.location_source,
-                            enrichment.event_type,
-                            enrichment.imageUrl,
-                            JSON.stringify(enrichment.quotes),
-                            enrichment.article_content,
-                            new Date().toISOString()
-                        );
+                                // Generate ID based on URL if not available, or use same lookup logic
+                                article.id || article.url,
+                                article.title,
+                                article.description,
+                                article.url,
+                                'RSS Feed', // source_name
+                                article.published_at,
+                                enrichment.lat,
+                                enrichment.lon,
+                                enrichment.location_label,
+                                enrichment.location_confidence,
+                                enrichment.location_source,
+                                enrichment.event_type,
+                                enrichment.imageUrl,
+                                JSON.stringify(enrichment.quotes),
+                                enrichment.article_content,
+                                new Date().toISOString()
+                            );
 
-                        // Also update rss_articles status
-                        db.prepare(`
+                            // Also update rss_articles status
+                            db.prepare(`
                                 UPDATE rss_articles 
                                 SET location_source = ?
                                 WHERE url = ?
                             `).run(enrichment.location_source, article.url);
-                        enrichedCount++;
+
+                            enrichedCount++;
+                        } catch (dbError) {
+                            console.error(`  ❌ Database error saving enriched article: ${dbError}`);
+                        }
                     }
                     // Rate limiting
                     await new Promise(resolve => setTimeout(resolve, enrichmentDelay));
                 }
 
                 // TRANSLATION
-                if (enableTranslation && translationAvailable) {
-                    const danishTitle = await translateToDanish(article.title);
-                    db.prepare(`
-                        UPDATE rss_articles 
-                        SET danish_title = ?
-                        WHERE url = ?
-                    `).run(danishTitle, article.url);
-                    translatedCount++;
+                // Always try translation using our robust translator (MyMemory fallback)
+                if (enableTranslation) {
+                    try {
+                        const translationResult = await translateToDanish(article.title);
+                        if (translationResult.success && translationResult.translated !== article.title) {
+                            db.prepare(`
+                                UPDATE rss_articles 
+                                SET danish_title = ?
+                                WHERE url = ?
+                            `).run(translationResult.translated, article.url);
+                            translatedCount++;
+                        }
+                    } catch (transError) {
+                        console.log(`  ⚠️ Translation failed: ${transError}`);
+                    }
 
                     // Small delay for translation API
-                    await new Promise(resolve => setTimeout(resolve, 200));
+                    await new Promise(resolve => setTimeout(resolve, 500));
                 }
 
                 process.stdout.write(`\r  Processed ${enrichedCount} enrichments, ${translatedCount} translations...`);
