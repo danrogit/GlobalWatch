@@ -1,0 +1,1535 @@
+{
+  "events": [
+    {
+      "id": "rss-1768436222801-18",
+      "layer": "political",
+      "lat": -35.2809,
+      "lon": 149.13,
+      "country": "Australia",
+      "category": "sanctions_trade",
+      "danishCategory": "Sanktioner & handel",
+      "title": "Why Australia’s best companies are scrapping legacy payroll systems",
+      "danishTitle": "Why Australia’s best companies are scrapping legacy payroll systems",
+      "slug": "why-australia-s-best-companies-are-scrapping-legacy-payroll-systems",
+      "severity": "medium",
+      "source": "dynamicbusiness.com.au",
+      "sourceUrl": "https://dynamicbusiness.com/leadership-2/expert/why-australias-best-companies-are-scrapping-legacy-payroll-systems.html",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T10:07:00.000Z",
+      "addedAt": "2026-01-15T00:17:02.801Z",
+      "status": "REPORTED",
+      "sources": [
+        "dynamicbusiness.com.au"
+      ],
+      "articles": [
+        {
+          "title": "Why Australia’s best companies are scrapping legacy payroll systems",
+          "url": "https://dynamicbusiness.com/leadership-2/expert/why-australias-best-companies-are-scrapping-legacy-payroll-systems.html",
+          "publisher": "dynamicbusiness.com.au",
+          "publishedAt": "2026-01-15T10:07:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436222802-19",
+      "layer": "political",
+      "lat": 28.6139,
+      "lon": 77.209,
+      "country": "India",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Australians are winning India’s beauty market with science, sustainability, and founder stories",
+      "danishTitle": "Australians are winning India’s beauty market with science, sustainability, and founder stories",
+      "slug": "australians-are-winning-india-s-beauty-market-with-science-sustainability-and-fo",
+      "severity": "medium",
+      "source": "dynamicbusiness.com.au",
+      "sourceUrl": "https://dynamicbusiness.com/topics/news/australians-are-winning-indias-beauty-market-with-science-sustainability-and-founder-stories.html",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T07:01:00.000Z",
+      "addedAt": "2026-01-15T00:17:02.802Z",
+      "status": "REPORTED",
+      "sources": [
+        "dynamicbusiness.com.au"
+      ],
+      "articles": [
+        {
+          "title": "Australians are winning India’s beauty market with science, sustainability, and founder stories",
+          "url": "https://dynamicbusiness.com/topics/news/australians-are-winning-indias-beauty-market-with-science-sustainability-and-founder-stories.html",
+          "publisher": "dynamicbusiness.com.au",
+          "publishedAt": "2026-01-15T07:01:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436222803-28",
+      "layer": "political",
+      "lat": 40.7128,
+      "lon": -74.006,
+      "country": "Unknown",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Jacob Elordi and Olivia Jade back together AGAIN after actor's cozy display with Ana de Armas",
+      "danishTitle": "Jacob Elordi and Olivia Jade back together AGAIN after actor's cozy display with Ana de Armas",
+      "slug": "jacob-elordi-and-olivia-jade-back-together-again-after-actor-s-cozy-display-with",
+      "severity": "medium",
+      "source": "dailymail.co.uk",
+      "sourceUrl": "https://www.dailymail.co.uk/tvshowbiz/article-15465171/Jacob-Elordi-Olivia-Jade-reunite-NYC.html?ns_mchannel=rss&amp;ns_campaign=1490&amp;ito=1490",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:13:49.000Z",
+      "addedAt": "2026-01-15T00:17:02.803Z",
+      "status": "REPORTED",
+      "sources": [
+        "dailymail.co.uk"
+      ],
+      "articles": [
+        {
+          "title": "Jacob Elordi and Olivia Jade back together AGAIN after actor's cozy display with Ana de Armas",
+          "url": "https://www.dailymail.co.uk/tvshowbiz/article-15465171/Jacob-Elordi-Olivia-Jade-reunite-NYC.html?ns_mchannel=rss&amp;ns_campaign=1490&amp;ito=1490",
+          "publisher": "dailymail.co.uk",
+          "publishedAt": "2026-01-15T00:13:49.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436222803-31",
+      "layer": "political",
+      "lat": 38.9072,
+      "lon": -77.0369,
+      "country": "USA",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Løkke til Fox News: Grønlænderne vil sige nej til købstilbud fra Trump",
+      "danishTitle": "Løkke til Fox News: Grønlænderne vil sige nej til købstilbud fra Trump",
+      "slug": "loekke-til-fox-news-groenlaenderne-vil-sige-nej-til-koebstilbud-fra-trump",
+      "severity": "medium",
+      "source": "berlingske.dk",
+      "sourceUrl": "https://www.berlingske.dk/internationalt/loekke-til-fox-news-groenlaenderne-vil-sige-nej-til-koebstilbud-fra-trump?referrer=RSS",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:12:49.000Z",
+      "addedAt": "2026-01-15T00:17:02.803Z",
+      "status": "REPORTED",
+      "sources": [
+        "berlingske.dk"
+      ],
+      "articles": [
+        {
+          "title": "Løkke til Fox News: Grønlænderne vil sige nej til købstilbud fra Trump",
+          "url": "https://www.berlingske.dk/internationalt/loekke-til-fox-news-groenlaenderne-vil-sige-nej-til-koebstilbud-fra-trump?referrer=RSS",
+          "publisher": "berlingske.dk",
+          "publishedAt": "2026-01-15T00:12:49.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436222803-35",
+      "layer": "political",
+      "lat": 55.6761,
+      "lon": 12.5683,
+      "country": "Denmark",
+      "category": "elections_power",
+      "danishCategory": "Valg & magtskifte",
+      "title": "Trump officials rebuff Greenland, Denmark&#039;s calls to drop talk of taking territory",
+      "danishTitle": "Trump officials rebuff Greenland, Denmark&#039;s calls to drop talk of taking territory",
+      "slug": "trump-officials-rebuff-greenland-denmark-039-s-calls-to-drop-talk-of-taking-terr",
+      "severity": "medium",
+      "source": "thehill.com",
+      "sourceUrl": "https://thehill.com/homenews/administration/5689722-trump-greenland-ownership-rejected/",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:11:41.000Z",
+      "addedAt": "2026-01-15T00:17:02.803Z",
+      "status": "REPORTED",
+      "sources": [
+        "thehill.com"
+      ],
+      "articles": [
+        {
+          "title": "Trump officials rebuff Greenland, Denmark&#039;s calls to drop talk of taking territory",
+          "url": "https://thehill.com/homenews/administration/5689722-trump-greenland-ownership-rejected/",
+          "publisher": "thehill.com",
+          "publishedAt": "2026-01-15T00:11:41.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436222804-36",
+      "layer": "political",
+      "lat": 55.6761,
+      "lon": 12.5683,
+      "country": "Denmark",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Løkke til Fox News: Grønlænderne vil sige nej til købstilbud fra Trump",
+      "danishTitle": "Løkke til Fox News: Grønlænderne vil sige nej til købstilbud fra Trump",
+      "slug": "loekke-til-fox-news-groenlaenderne-vil-sige-nej-til-koebstilbud-fra-trump",
+      "severity": "medium",
+      "source": "wallnot.dk",
+      "sourceUrl": "https://avisendanmark.dk/udland/loekke-til-fox-news-groenlaenderne-vil-sige-nej-til-koebstilbud-fra-trump",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:11:32.000Z",
+      "addedAt": "2026-01-15T00:17:02.804Z",
+      "status": "REPORTED",
+      "sources": [
+        "wallnot.dk"
+      ],
+      "articles": [
+        {
+          "title": "Løkke til Fox News: Grønlænderne vil sige nej til købstilbud fra Trump",
+          "url": "https://avisendanmark.dk/udland/loekke-til-fox-news-groenlaenderne-vil-sige-nej-til-koebstilbud-fra-trump",
+          "publisher": "wallnot.dk",
+          "publishedAt": "2026-01-15T00:11:32.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436222804-39",
+      "layer": "political",
+      "lat": 38.9072,
+      "lon": -77.0369,
+      "country": "United States",
+      "category": "military_security",
+      "danishCategory": "Militær & sikkerhed",
+      "title": "US launches Gaza plan&apos;s second phase, forms Palestinian committee",
+      "danishTitle": "US launches Gaza plan&apos;s second phase, forms Palestinian committee",
+      "slug": "us-launches-gaza-plan-apos-s-second-phase-forms-palestinian-committee",
+      "severity": "medium",
+      "source": "ca.sports.yahoo.com",
+      "sourceUrl": "https://ca.news.yahoo.com/us-expected-unveil-post-war-111917508.html",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:10:57.000Z",
+      "addedAt": "2026-01-15T00:17:02.804Z",
+      "status": "REPORTED",
+      "sources": [
+        "ca.sports.yahoo.com"
+      ],
+      "articles": [
+        {
+          "title": "US launches Gaza plan&apos;s second phase, forms Palestinian committee",
+          "url": "https://ca.news.yahoo.com/us-expected-unveil-post-war-111917508.html",
+          "publisher": "ca.sports.yahoo.com",
+          "publishedAt": "2026-01-15T00:10:57.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436222805-40",
+      "layer": "political",
+      "lat": 51.5074,
+      "lon": -0.1278,
+      "country": "Unknown",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Irish heartthrobs Paul Mescal and Cillian Murphy attend special screening of Hamnet in London",
+      "danishTitle": "Irish heartthrobs Paul Mescal and Cillian Murphy attend special screening of Hamnet in London",
+      "slug": "irish-heartthrobs-paul-mescal-and-cillian-murphy-attend-special-screening-of-ham",
+      "severity": "medium",
+      "source": "dailymail.co.uk",
+      "sourceUrl": "https://www.dailymail.co.uk/tvshowbiz/article-15465163/Irish-heartthrobs-Paul-Mescal-Cillian-Murphy-attend-special-screening-Hamnet-London.html?ns_mchannel=rss&amp;ns_campaign=1490&amp;ito=1490",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:10:34.000Z",
+      "addedAt": "2026-01-15T00:17:02.805Z",
+      "status": "REPORTED",
+      "sources": [
+        "dailymail.co.uk"
+      ],
+      "articles": [
+        {
+          "title": "Irish heartthrobs Paul Mescal and Cillian Murphy attend special screening of Hamnet in London",
+          "url": "https://www.dailymail.co.uk/tvshowbiz/article-15465163/Irish-heartthrobs-Paul-Mescal-Cillian-Murphy-attend-special-screening-Hamnet-London.html?ns_mchannel=rss&amp;ns_campaign=1490&amp;ito=1490",
+          "publisher": "dailymail.co.uk",
+          "publishedAt": "2026-01-15T00:10:34.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436222805-44",
+      "layer": "political",
+      "lat": 35.6892,
+      "lon": 51.389,
+      "country": "Iran",
+      "category": "protests_unrest",
+      "danishCategory": "Protester & uro",
+      "title": "Iran i oprør. Protesterne fortsætter på trods af styrets vold",
+      "danishTitle": "Iran i oprør. Protesterne fortsætter på trods af styrets vold",
+      "slug": "iran-i-oproer-protesterne-fortsaetter-paa-trods-af-styrets-vold",
+      "severity": "medium",
+      "source": "wallnot.dk",
+      "sourceUrl": "https://pov.international/iran-i-oproer-protesterne-fortsaetter-trods-vold/",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:10:00.000Z",
+      "addedAt": "2026-01-15T00:17:02.805Z",
+      "status": "REPORTED",
+      "sources": [
+        "wallnot.dk"
+      ],
+      "articles": [
+        {
+          "title": "Iran i oprør. Protesterne fortsætter på trods af styrets vold",
+          "url": "https://pov.international/iran-i-oproer-protesterne-fortsaetter-trods-vold/",
+          "publisher": "wallnot.dk",
+          "publishedAt": "2026-01-15T00:10:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436222805-45",
+      "layer": "political",
+      "lat": 40.7128,
+      "lon": -74.006,
+      "country": "Unknown",
+      "category": "sanctions_trade",
+      "danishCategory": "Sanktioner & handel",
+      "title": "Hochul&#8217;s gambling addiction plan blasted as hypocrisy — as NYS readies for more casinos",
+      "danishTitle": "Hochul&#8217;s gambling addiction plan blasted as hypocrisy — as NYS readies for more casinos",
+      "slug": "hochul-8217-s-gambling-addiction-plan-blasted-as-hypocrisy-as-nys-readies-for-mo",
+      "severity": "medium",
+      "source": "nypost.com",
+      "sourceUrl": "https://nypost.com/2026/01/14/us-news/hochuls-gambling-addiction-plan-blasted-as-hypocrisy-as-nys-readies-for-more-casinos/",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:09:56.000Z",
+      "addedAt": "2026-01-15T00:17:02.805Z",
+      "status": "REPORTED",
+      "sources": [
+        "nypost.com"
+      ],
+      "articles": [
+        {
+          "title": "Hochul&#8217;s gambling addiction plan blasted as hypocrisy — as NYS readies for more casinos",
+          "url": "https://nypost.com/2026/01/14/us-news/hochuls-gambling-addiction-plan-blasted-as-hypocrisy-as-nys-readies-for-more-casinos/",
+          "publisher": "nypost.com",
+          "publishedAt": "2026-01-15T00:09:56.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436222805-47",
+      "layer": "political",
+      "lat": 55.6761,
+      "lon": 12.5683,
+      "country": "Denmark",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Senatet blokerer for begrænsning af Trumps krigsmagt i Venezuela",
+      "danishTitle": "Senatet blokerer for begrænsning af Trumps krigsmagt i Venezuela",
+      "slug": "senatet-blokerer-for-begraensning-af-trumps-krigsmagt-i-venezuela",
+      "severity": "medium",
+      "source": "berlingske.dk",
+      "sourceUrl": "https://www.berlingske.dk/internationalt/senatet-blokerer-for-begraensning-af-trumps-krigsmagt-i-venezuela?referrer=RSS",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:09:45.000Z",
+      "addedAt": "2026-01-15T00:17:02.805Z",
+      "status": "REPORTED",
+      "sources": [
+        "berlingske.dk"
+      ],
+      "articles": [
+        {
+          "title": "Senatet blokerer for begrænsning af Trumps krigsmagt i Venezuela",
+          "url": "https://www.berlingske.dk/internationalt/senatet-blokerer-for-begraensning-af-trumps-krigsmagt-i-venezuela?referrer=RSS",
+          "publisher": "berlingske.dk",
+          "publishedAt": "2026-01-15T00:09:45.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436222805-48",
+      "layer": "political",
+      "lat": 28.6139,
+      "lon": 77.209,
+      "country": "India",
+      "category": "military_security",
+      "danishCategory": "Militær & sikkerhed",
+      "title": "Senate, Vance Barely Kill Effort To Check Trump On Venezuela After Hawley, Young Flip Their Votes",
+      "danishTitle": "Senate, Vance Barely Kill Effort To Check Trump On Venezuela After Hawley, Young Flip Their Votes",
+      "slug": "senate-vance-barely-kill-effort-to-check-trump-on-venezuela-after-hawley-young-f",
+      "severity": "medium",
+      "source": "dailycaller.com",
+      "sourceUrl": "https://dailycaller.com/2026/01/14/senate-vance-trump-venezuela-war-powers-josh-hawley-todd-young/",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:09:37.000Z",
+      "addedAt": "2026-01-15T00:17:02.805Z",
+      "status": "REPORTED",
+      "sources": [
+        "dailycaller.com"
+      ],
+      "articles": [
+        {
+          "title": "Senate, Vance Barely Kill Effort To Check Trump On Venezuela After Hawley, Young Flip Their Votes",
+          "url": "https://dailycaller.com/2026/01/14/senate-vance-trump-venezuela-war-powers-josh-hawley-todd-young/",
+          "publisher": "dailycaller.com",
+          "publishedAt": "2026-01-15T00:09:37.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436222805-49",
+      "layer": "political",
+      "lat": -35.2809,
+      "lon": 149.13,
+      "country": "Australia",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Why a once pigeonholed star can become Australia’s new three-format weapon",
+      "danishTitle": "Why a once pigeonholed star can become Australia’s new three-format weapon",
+      "slug": "why-a-once-pigeonholed-star-can-become-australia-s-new-three-format-weapon",
+      "severity": "medium",
+      "source": "smh.com.au",
+      "sourceUrl": "https://www.smh.com.au/sport/cricket/why-a-once-pigeonholed-star-can-become-australia-s-new-three-format-weapon-20260115-p5nu8l.html?ref=rss&amp;utm_medium=rss&amp;utm_source=rss_feed",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:09:33.000Z",
+      "addedAt": "2026-01-15T00:17:02.805Z",
+      "status": "REPORTED",
+      "sources": [
+        "smh.com.au"
+      ],
+      "articles": [
+        {
+          "title": "Why a once pigeonholed star can become Australia’s new three-format weapon",
+          "url": "https://www.smh.com.au/sport/cricket/why-a-once-pigeonholed-star-can-become-australia-s-new-three-format-weapon-20260115-p5nu8l.html?ref=rss&amp;utm_medium=rss&amp;utm_source=rss_feed",
+          "publisher": "smh.com.au",
+          "publishedAt": "2026-01-15T00:09:33.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436222805-52",
+      "layer": "political",
+      "lat": 55.6761,
+      "lon": 12.5683,
+      "country": "Denmark",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Senatet blokerer for begrænsning af Trumps krigsmagt i Venezuela",
+      "danishTitle": "Senatet blokerer for begrænsning af Trumps krigsmagt i Venezuela",
+      "slug": "senatet-blokerer-for-begraensning-af-trumps-krigsmagt-i-venezuela",
+      "severity": "medium",
+      "source": "wallnot.dk",
+      "sourceUrl": "https://www.kristeligt-dagblad.dk/udland/senatet-blokerer-begraensning-af-trumps-krigsmagt-i-venezuela",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:09:13.000Z",
+      "addedAt": "2026-01-15T00:17:02.805Z",
+      "status": "REPORTED",
+      "sources": [
+        "wallnot.dk"
+      ],
+      "articles": [
+        {
+          "title": "Senatet blokerer for begrænsning af Trumps krigsmagt i Venezuela",
+          "url": "https://www.kristeligt-dagblad.dk/udland/senatet-blokerer-begraensning-af-trumps-krigsmagt-i-venezuela",
+          "publisher": "wallnot.dk",
+          "publishedAt": "2026-01-15T00:09:13.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436224020-63",
+      "layer": "political",
+      "lat": 35.6892523,
+      "lon": 51.3896004,
+      "country": "Unknown",
+      "category": "military_security",
+      "danishCategory": "Militær & sikkerhed",
+      "title": "Tehran blinks first: Iran POSTPONES execution of clothes shop owner, 26, after Trump threatened Mullahs with 'strong' response... but western embassies and military bases in Middle East are evacuated amid fears of air strikes",
+      "danishTitle": "Tehran blinks first: Iran POSTPONES execution of clothes shop owner, 26, after Trump threatened Mullahs with 'strong' response... but western embassies and military bases in Middle East are evacuated amid fears of air strikes",
+      "slug": "tehran-blinks-first-iran-postpones-execution-of-clothes-shop-owner-26-after-trum",
+      "severity": "medium",
+      "source": "dailymail.co.uk",
+      "sourceUrl": "https://www.dailymail.co.uk/news/article-15462577/iran-protests-live-updates-trump-tehran.html?ns_mchannel=rss&amp;ns_campaign=1490&amp;ito=1490",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:06:59.000Z",
+      "addedAt": "2026-01-15T00:17:04.020Z",
+      "status": "REPORTED",
+      "sources": [
+        "dailymail.co.uk"
+      ],
+      "articles": [
+        {
+          "title": "Tehran blinks first: Iran POSTPONES execution of clothes shop owner, 26, after Trump threatened Mullahs with 'strong' response... but western embassies and military bases in Middle East are evacuated amid fears of air strikes",
+          "url": "https://www.dailymail.co.uk/news/article-15462577/iran-protests-live-updates-trump-tehran.html?ns_mchannel=rss&amp;ns_campaign=1490&amp;ito=1490",
+          "publisher": "dailymail.co.uk",
+          "publishedAt": "2026-01-15T00:06:59.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436224020-64",
+      "layer": "political",
+      "lat": 55.6761,
+      "lon": 12.5683,
+      "country": "Denmark",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Musk chatbot lukker ned for AI-afklædning af personer",
+      "danishTitle": "Musk chatbot lukker ned for AI-afklædning af personer",
+      "slug": "musk-chatbot-lukker-ned-for-ai-afklaedning-af-personer",
+      "severity": "medium",
+      "source": "berlingske.dk",
+      "sourceUrl": "https://www.berlingske.dk/internationalt/musk-chatbot-lukker-ned-for-ai-afklaedning-af-personer?referrer=RSS",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:06:49.000Z",
+      "addedAt": "2026-01-15T00:17:04.020Z",
+      "status": "REPORTED",
+      "sources": [
+        "berlingske.dk"
+      ],
+      "articles": [
+        {
+          "title": "Musk chatbot lukker ned for AI-afklædning af personer",
+          "url": "https://www.berlingske.dk/internationalt/musk-chatbot-lukker-ned-for-ai-afklaedning-af-personer?referrer=RSS",
+          "publisher": "berlingske.dk",
+          "publishedAt": "2026-01-15T00:06:49.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436224020-65",
+      "layer": "political",
+      "lat": 35.6892523,
+      "lon": 51.3896004,
+      "country": "Unknown",
+      "category": "military_security",
+      "danishCategory": "Militær & sikkerhed",
+      "title": "Iran closes airspace despite Trump steering away from military strikes as president is grilled on his claims Tehran has stopped executing its people",
+      "danishTitle": "Iran closes airspace despite Trump steering away from military strikes as president is grilled on his claims Tehran has stopped executing its people",
+      "slug": "iran-closes-airspace-despite-trump-steering-away-from-military-strikes-as-presid",
+      "severity": "medium",
+      "source": "dailymail.co.uk",
+      "sourceUrl": "https://www.dailymail.co.uk/news/article-15464775/Trumps-faces-brutal-TACO-insult-Iran-steps-brink.html?ns_mchannel=rss&amp;ns_campaign=1490&amp;ito=1490",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:06:25.000Z",
+      "addedAt": "2026-01-15T00:17:04.020Z",
+      "status": "REPORTED",
+      "sources": [
+        "dailymail.co.uk"
+      ],
+      "articles": [
+        {
+          "title": "Iran closes airspace despite Trump steering away from military strikes as president is grilled on his claims Tehran has stopped executing its people",
+          "url": "https://www.dailymail.co.uk/news/article-15464775/Trumps-faces-brutal-TACO-insult-Iran-steps-brink.html?ns_mchannel=rss&amp;ns_campaign=1490&amp;ito=1490",
+          "publisher": "dailymail.co.uk",
+          "publishedAt": "2026-01-15T00:06:25.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436224020-68",
+      "layer": "political",
+      "lat": 40.7128,
+      "lon": -74.006,
+      "country": "Unknown",
+      "category": "sanctions_trade",
+      "danishCategory": "Sanktioner & handel",
+      "title": "Leigh-Anne Pinnock poses at the Empire Stare Building as she promotes her solo album in New York after speaking out on husband's betrayal",
+      "danishTitle": "Leigh-Anne Pinnock poses at the Empire Stare Building as she promotes her solo album in New York after speaking out on husband's betrayal",
+      "slug": "leigh-anne-pinnock-poses-at-the-empire-stare-building-as-she-promotes-her-solo-a",
+      "severity": "medium",
+      "source": "dailymail.co.uk",
+      "sourceUrl": "https://www.dailymail.co.uk/tvshowbiz/article-15465081/Leigh-Anne-Pinnock-poses-Empire-Stare-Building-promotes-solo-album-New-York-speaking-husbands-betrayal.html?ns_mchannel=rss&amp;ns_campaign=1490&amp;ito=1490",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:05:44.000Z",
+      "addedAt": "2026-01-15T00:17:04.020Z",
+      "status": "REPORTED",
+      "sources": [
+        "dailymail.co.uk"
+      ],
+      "articles": [
+        {
+          "title": "Leigh-Anne Pinnock poses at the Empire Stare Building as she promotes her solo album in New York after speaking out on husband's betrayal",
+          "url": "https://www.dailymail.co.uk/tvshowbiz/article-15465081/Leigh-Anne-Pinnock-poses-Empire-Stare-Building-promotes-solo-album-New-York-speaking-husbands-betrayal.html?ns_mchannel=rss&amp;ns_campaign=1490&amp;ito=1490",
+          "publisher": "dailymail.co.uk",
+          "publishedAt": "2026-01-15T00:05:44.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436224020-71",
+      "layer": "political",
+      "lat": 55.6761,
+      "lon": 12.5683,
+      "country": "Denmark",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Musk chatbot lukker ned for AI-afklædning af personer",
+      "danishTitle": "Musk chatbot lukker ned for AI-afklædning af personer",
+      "slug": "musk-chatbot-lukker-ned-for-ai-afklaedning-af-personer",
+      "severity": "medium",
+      "source": "wallnot.dk",
+      "sourceUrl": "https://www.kristeligt-dagblad.dk/udland/musk-chatbot-lukker-ned-ai-afklaedning-af-personer",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:05:25.000Z",
+      "addedAt": "2026-01-15T00:17:04.020Z",
+      "status": "REPORTED",
+      "sources": [
+        "wallnot.dk"
+      ],
+      "articles": [
+        {
+          "title": "Musk chatbot lukker ned for AI-afklædning af personer",
+          "url": "https://www.kristeligt-dagblad.dk/udland/musk-chatbot-lukker-ned-ai-afklaedning-af-personer",
+          "publisher": "wallnot.dk",
+          "publishedAt": "2026-01-15T00:05:25.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436225273-77",
+      "layer": "political",
+      "lat": 40.416782,
+      "lon": -3.703507,
+      "country": "Unknown",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Real Madrid humiliated in Copa del Rey: Alvaro Arbeloa suffers nightmare start as Los Blancos crash OUT to second tier strugglers after Xabi Alonso's sacking",
+      "danishTitle": "Real Madrid humiliated in Copa del Rey: Alvaro Arbeloa suffers nightmare start as Los Blancos crash OUT to second tier strugglers after Xabi Alonso's sacking",
+      "slug": "real-madrid-humiliated-in-copa-del-rey-alvaro-arbeloa-suffers-nightmare-start-as",
+      "severity": "medium",
+      "source": "dailymail.co.uk",
+      "sourceUrl": "https://www.dailymail.co.uk/sport/football/article-15464921/Real-Madrid-Copa-del-Rey-second-tier-strugglers-Xabi-Alonso-sacking-Alvaro-Arbeloa-nightmare-debut.html?ns_mchannel=rss&amp;ns_campaign=1490&amp;ito=1490",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:03:46.000Z",
+      "addedAt": "2026-01-15T00:17:05.273Z",
+      "status": "REPORTED",
+      "sources": [
+        "dailymail.co.uk"
+      ],
+      "articles": [
+        {
+          "title": "Real Madrid humiliated in Copa del Rey: Alvaro Arbeloa suffers nightmare start as Los Blancos crash OUT to second tier strugglers after Xabi Alonso's sacking",
+          "url": "https://www.dailymail.co.uk/sport/football/article-15464921/Real-Madrid-Copa-del-Rey-second-tier-strugglers-Xabi-Alonso-sacking-Alvaro-Arbeloa-nightmare-debut.html?ns_mchannel=rss&amp;ns_campaign=1490&amp;ito=1490",
+          "publisher": "dailymail.co.uk",
+          "publishedAt": "2026-01-15T00:03:46.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436225274-81",
+      "layer": "political",
+      "lat": 32.0853,
+      "lon": 34.7818,
+      "country": "Unknown",
+      "category": "sanctions_trade",
+      "danishCategory": "Sanktioner & handel",
+      "title": "Police chief clings to his job after losing confidence of Home Secretary",
+      "danishTitle": "Police chief clings to his job after losing confidence of Home Secretary",
+      "slug": "police-chief-clings-to-his-job-after-losing-confidence-of-home-secretary",
+      "severity": "medium",
+      "source": "standard.co.uk",
+      "sourceUrl": "https://www.standard.co.uk/news/politics/villa-park-shabana-mahmood-maccabi-tel-aviv-home-secretary-guildford-b1266554.html",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:02:33.000Z",
+      "addedAt": "2026-01-15T00:17:05.274Z",
+      "status": "REPORTED",
+      "sources": [
+        "standard.co.uk"
+      ],
+      "articles": [
+        {
+          "title": "Police chief clings to his job after losing confidence of Home Secretary",
+          "url": "https://www.standard.co.uk/news/politics/villa-park-shabana-mahmood-maccabi-tel-aviv-home-secretary-guildford-b1266554.html",
+          "publisher": "standard.co.uk",
+          "publishedAt": "2026-01-15T00:02:33.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226523-84",
+      "layer": "political",
+      "lat": 41.3825802,
+      "lon": 2.177073,
+      "country": "Unknown",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Why Dro Fernandez is set to miss Barcelona’s Copa del Rey tie with Racing",
+      "danishTitle": "Why Dro Fernandez is set to miss Barcelona’s Copa del Rey tie with Racing",
+      "slug": "why-dro-fernandez-is-set-to-miss-barcelona-s-copa-del-rey-tie-with-racing",
+      "severity": "medium",
+      "source": "sports.yahoo.com",
+      "sourceUrl": "https://sports.yahoo.com/articles/why-dro-fernandez-set-miss-000200313.html",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:02:00.000Z",
+      "addedAt": "2026-01-15T00:17:06.523Z",
+      "status": "REPORTED",
+      "sources": [
+        "sports.yahoo.com"
+      ],
+      "articles": [
+        {
+          "title": "Why Dro Fernandez is set to miss Barcelona’s Copa del Rey tie with Racing",
+          "url": "https://sports.yahoo.com/articles/why-dro-fernandez-set-miss-000200313.html",
+          "publisher": "sports.yahoo.com",
+          "publishedAt": "2026-01-15T00:02:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226524-88",
+      "layer": "political",
+      "lat": 51.5074,
+      "lon": -0.1278,
+      "country": "Unknown",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Traces of cancer-linked pesticide found in tests at UK playgrounds",
+      "danishTitle": "Traces of cancer-linked pesticide found in tests at UK playgrounds",
+      "slug": "traces-of-cancer-linked-pesticide-found-in-tests-at-uk-playgrounds",
+      "severity": "medium",
+      "source": "theguardian.com",
+      "sourceUrl": "https://www.theguardian.com/environment/2026/jan/15/glyphosate-cancer-linked-pesticide-uk-playgrounds",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:01:46.000Z",
+      "addedAt": "2026-01-15T00:17:06.524Z",
+      "status": "REPORTED",
+      "sources": [
+        "theguardian.com"
+      ],
+      "articles": [
+        {
+          "title": "Traces of cancer-linked pesticide found in tests at UK playgrounds",
+          "url": "https://www.theguardian.com/environment/2026/jan/15/glyphosate-cancer-linked-pesticide-uk-playgrounds",
+          "publisher": "theguardian.com",
+          "publishedAt": "2026-01-15T00:01:46.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226524-89",
+      "layer": "political",
+      "lat": 39.9042,
+      "lon": 116.4074,
+      "country": "China",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Trump is making China – not America – great again, global survey suggests",
+      "danishTitle": "Trump is making China – not America – great again, global survey suggests",
+      "slug": "trump-is-making-china-not-america-great-again-global-survey-suggests",
+      "severity": "medium",
+      "source": "theguardian.com",
+      "sourceUrl": "https://www.theguardian.com/us-news/2026/jan/14/global-survey-suggests-trump-is-making-china-not-america-great-again",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:01:46.000Z",
+      "addedAt": "2026-01-15T00:17:06.524Z",
+      "status": "REPORTED",
+      "sources": [
+        "theguardian.com"
+      ],
+      "articles": [
+        {
+          "title": "Trump is making China – not America – great again, global survey suggests",
+          "url": "https://www.theguardian.com/us-news/2026/jan/14/global-survey-suggests-trump-is-making-china-not-america-great-again",
+          "publisher": "theguardian.com",
+          "publishedAt": "2026-01-15T00:01:46.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226524-90",
+      "layer": "political",
+      "lat": 51.5074,
+      "lon": -0.1278,
+      "country": "UK",
+      "category": "military_security",
+      "danishCategory": "Militær & sikkerhed",
+      "title": "Reform UK politicians should be barred from speaking on campus, say 35% of students",
+      "danishTitle": "Reform UK politicians should be barred from speaking on campus, say 35% of students",
+      "slug": "reform-uk-politicians-should-be-barred-from-speaking-on-campus-say-35-of-student",
+      "severity": "medium",
+      "source": "theguardian.com",
+      "sourceUrl": "https://www.theguardian.com/education/2026/jan/15/reform-uk-politicians-should-be-barred-from-speaking-on-campus-say-35-of-students",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:01:45.000Z",
+      "addedAt": "2026-01-15T00:17:06.524Z",
+      "status": "REPORTED",
+      "sources": [
+        "theguardian.com"
+      ],
+      "articles": [
+        {
+          "title": "Reform UK politicians should be barred from speaking on campus, say 35% of students",
+          "url": "https://www.theguardian.com/education/2026/jan/15/reform-uk-politicians-should-be-barred-from-speaking-on-campus-say-35-of-students",
+          "publisher": "theguardian.com",
+          "publishedAt": "2026-01-15T00:01:45.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226524-91",
+      "layer": "political",
+      "lat": 51.5074,
+      "lon": -0.1278,
+      "country": "UK",
+      "category": "military_security",
+      "danishCategory": "Militær & sikkerhed",
+      "title": "NHS corridor care is ‘torture’ leading to patient deaths and staff nightmares",
+      "danishTitle": "NHS corridor care is ‘torture’ leading to patient deaths and staff nightmares",
+      "slug": "nhs-corridor-care-is-torture-leading-to-patient-deaths-and-staff-nightmares",
+      "severity": "medium",
+      "source": "theguardian.com",
+      "sourceUrl": "https://www.theguardian.com/society/2026/jan/15/nhs-corridor-care-torture-patient-deaths-staff-nightmares",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:01:44.000Z",
+      "addedAt": "2026-01-15T00:17:06.524Z",
+      "status": "REPORTED",
+      "sources": [
+        "theguardian.com"
+      ],
+      "articles": [
+        {
+          "title": "NHS corridor care is ‘torture’ leading to patient deaths and staff nightmares",
+          "url": "https://www.theguardian.com/society/2026/jan/15/nhs-corridor-care-torture-patient-deaths-staff-nightmares",
+          "publisher": "theguardian.com",
+          "publishedAt": "2026-01-15T00:01:44.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226524-94",
+      "layer": "political",
+      "lat": 51.5074,
+      "lon": -0.1278,
+      "country": "UK",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Heathrow boss calls for faster runway approval to meet 2029 start date",
+      "danishTitle": "Heathrow boss calls for faster runway approval to meet 2029 start date",
+      "slug": "heathrow-boss-calls-for-faster-runway-approval-to-meet-2029-start-date",
+      "severity": "medium",
+      "source": "ft.com",
+      "sourceUrl": "https://www.ft.com/content/b012328f-93b8-41ef-a491-69efaf1159dc",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:01:09.000Z",
+      "addedAt": "2026-01-15T00:17:06.524Z",
+      "status": "REPORTED",
+      "sources": [
+        "ft.com"
+      ],
+      "articles": [
+        {
+          "title": "Heathrow boss calls for faster runway approval to meet 2029 start date",
+          "url": "https://www.ft.com/content/b012328f-93b8-41ef-a491-69efaf1159dc",
+          "publisher": "ft.com",
+          "publishedAt": "2026-01-15T00:01:09.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226524-95",
+      "layer": "political",
+      "lat": 51.5074,
+      "lon": -0.1278,
+      "country": "UK",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Disability benefits could be reformed to get more people into work, says UK minister",
+      "danishTitle": "Disability benefits could be reformed to get more people into work, says UK minister",
+      "slug": "disability-benefits-could-be-reformed-to-get-more-people-into-work-says-uk-minis",
+      "severity": "medium",
+      "source": "ft.com",
+      "sourceUrl": "https://www.ft.com/content/7742b9e1-8468-45a7-823d-e412199cd598",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:01:09.000Z",
+      "addedAt": "2026-01-15T00:17:06.524Z",
+      "status": "REPORTED",
+      "sources": [
+        "ft.com"
+      ],
+      "articles": [
+        {
+          "title": "Disability benefits could be reformed to get more people into work, says UK minister",
+          "url": "https://www.ft.com/content/7742b9e1-8468-45a7-823d-e412199cd598",
+          "publisher": "ft.com",
+          "publishedAt": "2026-01-15T00:01:09.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226524-96",
+      "layer": "political",
+      "lat": 51.5074,
+      "lon": -0.1278,
+      "country": "UK",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "UK estate agents’ optimism on home sales hits highest level in over a year",
+      "danishTitle": "UK estate agents’ optimism on home sales hits highest level in over a year",
+      "slug": "uk-estate-agents-optimism-on-home-sales-hits-highest-level-in-over-a-year",
+      "severity": "medium",
+      "source": "ft.com",
+      "sourceUrl": "https://www.ft.com/content/a6f4bd7d-3c23-4ff1-be4e-4cf12c41fce2",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:01:09.000Z",
+      "addedAt": "2026-01-15T00:17:06.524Z",
+      "status": "REPORTED",
+      "sources": [
+        "ft.com"
+      ],
+      "articles": [
+        {
+          "title": "UK estate agents’ optimism on home sales hits highest level in over a year",
+          "url": "https://www.ft.com/content/a6f4bd7d-3c23-4ff1-be4e-4cf12c41fce2",
+          "publisher": "ft.com",
+          "publishedAt": "2026-01-15T00:01:09.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226524-97",
+      "layer": "political",
+      "lat": 51.5074,
+      "lon": -0.1278,
+      "country": "UK",
+      "category": "elections_power",
+      "danishCategory": "Valg & magtskifte",
+      "title": "Starmer, Farage and Badenoch expected to appear in Scotland",
+      "danishTitle": "Starmer, Farage and Badenoch expected to appear in Scotland",
+      "slug": "starmer-farage-and-badenoch-expected-to-appear-in-scotland",
+      "severity": "medium",
+      "source": "standard.co.uk",
+      "sourceUrl": "https://www.standard.co.uk/news/politics/kemi-badenoch-nigel-farage-scotland-reform-uk-keir-starmer-b1266555.html",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:01:00.000Z",
+      "addedAt": "2026-01-15T00:17:06.524Z",
+      "status": "REPORTED",
+      "sources": [
+        "standard.co.uk"
+      ],
+      "articles": [
+        {
+          "title": "Starmer, Farage and Badenoch expected to appear in Scotland",
+          "url": "https://www.standard.co.uk/news/politics/kemi-badenoch-nigel-farage-scotland-reform-uk-keir-starmer-b1266555.html",
+          "publisher": "standard.co.uk",
+          "publishedAt": "2026-01-15T00:01:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226525-117",
+      "layer": "political",
+      "lat": 35.6892,
+      "lon": 51.389,
+      "country": "Iran",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Netanyahu i skyggen af Iran",
+      "danishTitle": "Netanyahu i skyggen af Iran",
+      "slug": "netanyahu-i-skyggen-af-iran",
+      "severity": "medium",
+      "source": "wallnot.dk",
+      "sourceUrl": "https://pov.international/netanyahu-i-skyggen-af-iran/",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:00:00.000Z",
+      "addedAt": "2026-01-15T00:17:06.525Z",
+      "status": "REPORTED",
+      "sources": [
+        "wallnot.dk"
+      ],
+      "articles": [
+        {
+          "title": "Netanyahu i skyggen af Iran",
+          "url": "https://pov.international/netanyahu-i-skyggen-af-iran/",
+          "publisher": "wallnot.dk",
+          "publishedAt": "2026-01-15T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226525-120",
+      "layer": "political",
+      "lat": -35.2809,
+      "lon": 149.13,
+      "country": "Australia",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "‘Rare combination’: Football Australia picks former Stan boss as new chief executive",
+      "danishTitle": "‘Rare combination’: Football Australia picks former Stan boss as new chief executive",
+      "slug": "rare-combination-football-australia-picks-former-stan-boss-as-new-chief-executiv",
+      "severity": "medium",
+      "source": "smh.com.au",
+      "sourceUrl": "https://www.smh.com.au/sport/soccer/rare-combination-football-australia-picks-former-stan-boss-as-new-chief-executive-20260115-p5nu74.html?ref=rss&amp;utm_medium=rss&amp;utm_source=rss_feed",
+      "dotColor": "orange",
+      "timestamp": "2026-01-15T00:00:00.000Z",
+      "addedAt": "2026-01-15T00:17:06.525Z",
+      "status": "REPORTED",
+      "sources": [
+        "smh.com.au"
+      ],
+      "articles": [
+        {
+          "title": "‘Rare combination’: Football Australia picks former Stan boss as new chief executive",
+          "url": "https://www.smh.com.au/sport/soccer/rare-combination-football-australia-picks-former-stan-boss-as-new-chief-executive-20260115-p5nu74.html?ref=rss&amp;utm_medium=rss&amp;utm_source=rss_feed",
+          "publisher": "smh.com.au",
+          "publishedAt": "2026-01-15T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226525-121",
+      "layer": "political",
+      "lat": -35.2809,
+      "lon": 149.13,
+      "country": "Australia",
+      "category": "sanctions_trade",
+      "danishCategory": "Sanktioner & handel",
+      "title": "Brisbane drug could treat one of world’s biggest killers for first time",
+      "danishTitle": "Brisbane drug could treat one of world’s biggest killers for first time",
+      "slug": "brisbane-drug-could-treat-one-of-world-s-biggest-killers-for-first-time",
+      "severity": "medium",
+      "source": "smh.com.au",
+      "sourceUrl": "https://www.smh.com.au/national/queensland/brisbane-drug-could-treat-one-of-world-s-biggest-killers-for-first-time-20260115-p5nu96.html?ref=rss&amp;utm_medium=rss&amp;utm_source=rss_feed",
+      "dotColor": "orange",
+      "timestamp": "2026-01-14T23:59:31.000Z",
+      "addedAt": "2026-01-15T00:17:06.525Z",
+      "status": "REPORTED",
+      "sources": [
+        "smh.com.au"
+      ],
+      "articles": [
+        {
+          "title": "Brisbane drug could treat one of world’s biggest killers for first time",
+          "url": "https://www.smh.com.au/national/queensland/brisbane-drug-could-treat-one-of-world-s-biggest-killers-for-first-time-20260115-p5nu96.html?ref=rss&amp;utm_medium=rss&amp;utm_source=rss_feed",
+          "publisher": "smh.com.au",
+          "publishedAt": "2026-01-14T23:59:31.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226525-126",
+      "layer": "political",
+      "lat": -35.2809,
+      "lon": 149.13,
+      "country": "Australia",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Aus Open draw explained: Every scenario and the lucky break Demon needs for shot at history",
+      "danishTitle": "Aus Open draw explained: Every scenario and the lucky break Demon needs for shot at history",
+      "slug": "aus-open-draw-explained-every-scenario-and-the-lucky-break-demon-needs-for-shot-",
+      "severity": "medium",
+      "source": "news.com.au",
+      "sourceUrl": "https://www.foxsports.com.au/tennis/australian-open/australian-open-draw-2026-draw-preview-live-updates-from-melbourne-park-alex-de-minaur-potential-opponents-seeds-how-a-grand-slam-draw-works-latest-news/news-story/565d395a51cc3f072ecf526ffb2ca5e1",
+      "dotColor": "orange",
+      "timestamp": "2026-01-14T23:59:00.000Z",
+      "addedAt": "2026-01-15T00:17:06.525Z",
+      "status": "REPORTED",
+      "sources": [
+        "news.com.au"
+      ],
+      "articles": [
+        {
+          "title": "Aus Open draw explained: Every scenario and the lucky break Demon needs for shot at history",
+          "url": "https://www.foxsports.com.au/tennis/australian-open/australian-open-draw-2026-draw-preview-live-updates-from-melbourne-park-alex-de-minaur-potential-opponents-seeds-how-a-grand-slam-draw-works-latest-news/news-story/565d395a51cc3f072ecf526ffb2ca5e1",
+          "publisher": "news.com.au",
+          "publishedAt": "2026-01-14T23:59:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226525-127",
+      "layer": "political",
+      "lat": -35.2809,
+      "lon": 149.13,
+      "country": "Australia",
+      "category": "military_security",
+      "danishCategory": "Militær & sikkerhed",
+      "title": "Australia news live: Sussan Ley calls Albanese’s hate law reforms ‘unsalvageable’ as Penny Wong criticises Coalition ‘hypocrisy’",
+      "danishTitle": "Australia news live: Sussan Ley calls Albanese’s hate law reforms ‘unsalvageable’ as Penny Wong criticises Coalition ‘hypocrisy’",
+      "slug": "australia-news-live-sussan-ley-calls-albanese-s-hate-law-reforms-unsalvageable-a",
+      "severity": "medium",
+      "source": "theguardian.com",
+      "sourceUrl": "https://www.theguardian.com/australia-news/live/2026/jan/15/victoria-bushfires-school-data-hack-adelaide-writers-week-peter-malinauskas-labor-hate-speech-laws-political-reaction-anthony-albanese-sussan-ley-coalition-ntwnfb",
+      "dotColor": "orange",
+      "timestamp": "2026-01-14T23:58:34.000Z",
+      "addedAt": "2026-01-15T00:17:06.525Z",
+      "status": "REPORTED",
+      "sources": [
+        "theguardian.com"
+      ],
+      "articles": [
+        {
+          "title": "Australia news live: Sussan Ley calls Albanese’s hate law reforms ‘unsalvageable’ as Penny Wong criticises Coalition ‘hypocrisy’",
+          "url": "https://www.theguardian.com/australia-news/live/2026/jan/15/victoria-bushfires-school-data-hack-adelaide-writers-week-peter-malinauskas-labor-hate-speech-laws-political-reaction-anthony-albanese-sussan-ley-coalition-ntwnfb",
+          "publisher": "theguardian.com",
+          "publishedAt": "2026-01-14T23:58:34.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226526-132",
+      "layer": "political",
+      "lat": 55.6761,
+      "lon": 12.5683,
+      "country": "Denmark",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "WATCH: Trump won't say what he is 'willing to do' to take control of Greenland",
+      "danishTitle": "WATCH: Trump won't say what he is 'willing to do' to take control of Greenland",
+      "slug": "watch-trump-won-t-say-what-he-is-willing-to-do-to-take-control-of-greenland",
+      "severity": "medium",
+      "source": "pbs.org",
+      "sourceUrl": "https://www.pbs.org/newshour/politics/watch-trump-wont-say-what-he-is-willing-to-do-to-take-control-of-greenland",
+      "dotColor": "orange",
+      "timestamp": "2026-01-14T23:57:36.000Z",
+      "addedAt": "2026-01-15T00:17:06.526Z",
+      "status": "REPORTED",
+      "sources": [
+        "pbs.org"
+      ],
+      "articles": [
+        {
+          "title": "WATCH: Trump won't say what he is 'willing to do' to take control of Greenland",
+          "url": "https://www.pbs.org/newshour/politics/watch-trump-wont-say-what-he-is-willing-to-do-to-take-control-of-greenland",
+          "publisher": "pbs.org",
+          "publishedAt": "2026-01-14T23:57:36.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226526-133",
+      "layer": "political",
+      "lat": -33.8688,
+      "lon": 151.2093,
+      "country": "Unknown",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Who is Jordan Smith, the Australian Open’s newest millionaire?",
+      "danishTitle": "Who is Jordan Smith, the Australian Open’s newest millionaire?",
+      "slug": "who-is-jordan-smith-the-australian-open-s-newest-millionaire",
+      "severity": "medium",
+      "source": "smh.com.au",
+      "sourceUrl": "https://www.smh.com.au/sport/tennis/who-is-jordan-smith-the-australian-open-s-newest-millionaire-20260115-p5nu6o.html?ref=rss&amp;utm_medium=rss&amp;utm_source=rss_feed",
+      "dotColor": "orange",
+      "timestamp": "2026-01-14T23:57:32.000Z",
+      "addedAt": "2026-01-15T00:17:06.526Z",
+      "status": "REPORTED",
+      "sources": [
+        "smh.com.au"
+      ],
+      "articles": [
+        {
+          "title": "Who is Jordan Smith, the Australian Open’s newest millionaire?",
+          "url": "https://www.smh.com.au/sport/tennis/who-is-jordan-smith-the-australian-open-s-newest-millionaire-20260115-p5nu6o.html?ref=rss&amp;utm_medium=rss&amp;utm_source=rss_feed",
+          "publisher": "smh.com.au",
+          "publishedAt": "2026-01-14T23:57:32.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226526-136",
+      "layer": "political",
+      "lat": 35.6892,
+      "lon": 51.389,
+      "country": "Iran",
+      "category": "military_security",
+      "danishCategory": "Militær & sikkerhed",
+      "title": "Iran closes airspace to all flights – live",
+      "danishTitle": "Iran closes airspace to all flights – live",
+      "slug": "iran-closes-airspace-to-all-flights-live",
+      "severity": "medium",
+      "source": "theguardian.com",
+      "sourceUrl": "https://www.theguardian.com/world/live/2026/jan/14/iran-protests-live-updates-trump-us-action-death-toll-protester-executions-erfan-soltani",
+      "dotColor": "orange",
+      "timestamp": "2026-01-14T23:57:08.000Z",
+      "addedAt": "2026-01-15T00:17:06.526Z",
+      "status": "REPORTED",
+      "sources": [
+        "theguardian.com"
+      ],
+      "articles": [
+        {
+          "title": "Iran closes airspace to all flights – live",
+          "url": "https://www.theguardian.com/world/live/2026/jan/14/iran-protests-live-updates-trump-us-action-death-toll-protester-executions-erfan-soltani",
+          "publisher": "theguardian.com",
+          "publishedAt": "2026-01-14T23:57:08.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226526-142",
+      "layer": "political",
+      "lat": 31.7683,
+      "lon": 35.2137,
+      "country": "Israel",
+      "category": "military_security",
+      "danishCategory": "Militær & sikkerhed",
+      "title": "Iran shuts down airspace; foreign officials warn against travel to Israel",
+      "danishTitle": "Iran shuts down airspace; foreign officials warn against travel to Israel",
+      "slug": "iran-shuts-down-airspace-foreign-officials-warn-against-travel-to-israel",
+      "severity": "medium",
+      "source": "foxnews.com",
+      "sourceUrl": "https://www.foxnews.com/world/iran-shuts-down-airspace-foreign-officials-warn-against-travel-israel",
+      "dotColor": "orange",
+      "timestamp": "2026-01-14T23:54:39.000Z",
+      "addedAt": "2026-01-15T00:17:06.526Z",
+      "status": "REPORTED",
+      "sources": [
+        "foxnews.com"
+      ],
+      "articles": [
+        {
+          "title": "Iran shuts down airspace; foreign officials warn against travel to Israel",
+          "url": "https://www.foxnews.com/world/iran-shuts-down-airspace-foreign-officials-warn-against-travel-israel",
+          "publisher": "foxnews.com",
+          "publishedAt": "2026-01-14T23:54:39.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226527-149",
+      "layer": "political",
+      "lat": 40.416782,
+      "lon": -3.703507,
+      "country": "Unknown",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Arbeloa: Madrid Copa exit to 2nd-tier side 'painful'",
+      "danishTitle": "Arbeloa: Madrid Copa exit to 2nd-tier side 'painful'",
+      "slug": "arbeloa-madrid-copa-exit-to-2nd-tier-side-painful",
+      "severity": "medium",
+      "source": "sports.espn.go.com",
+      "sourceUrl": "https://www.espn.com/soccer/story/_/id/47613216/arbeloa-real-madrid-copa-exit-2nd-tier-side",
+      "dotColor": "orange",
+      "timestamp": "2026-01-14T23:54:23.000Z",
+      "addedAt": "2026-01-15T00:17:06.527Z",
+      "status": "REPORTED",
+      "sources": [
+        "sports.espn.go.com"
+      ],
+      "articles": [
+        {
+          "title": "Arbeloa: Madrid Copa exit to 2nd-tier side 'painful'",
+          "url": "https://www.espn.com/soccer/story/_/id/47613216/arbeloa-real-madrid-copa-exit-2nd-tier-side",
+          "publisher": "sports.espn.go.com",
+          "publishedAt": "2026-01-14T23:54:23.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226527-161",
+      "layer": "political",
+      "lat": -35.2809,
+      "lon": 149.13,
+      "country": "Australia",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Why shoppers are racing to Bunnings to snap up this $5 fashion 'must-have'",
+      "danishTitle": "Why shoppers are racing to Bunnings to snap up this $5 fashion 'must-have'",
+      "slug": "why-shoppers-are-racing-to-bunnings-to-snap-up-this-5-fashion-must-have",
+      "severity": "medium",
+      "source": "dailymail.co.uk",
+      "sourceUrl": "https://www.dailymail.co.uk/lifestyle/fashion/article-15464773/bunnings-warehouse-cap-shoppers-bargain-fashion-5-dollars.html?ns_mchannel=rss&amp;ns_campaign=1490&amp;ito=1490",
+      "dotColor": "orange",
+      "timestamp": "2026-01-14T23:51:01.000Z",
+      "addedAt": "2026-01-15T00:17:06.527Z",
+      "status": "REPORTED",
+      "sources": [
+        "dailymail.co.uk"
+      ],
+      "articles": [
+        {
+          "title": "Why shoppers are racing to Bunnings to snap up this $5 fashion 'must-have'",
+          "url": "https://www.dailymail.co.uk/lifestyle/fashion/article-15464773/bunnings-warehouse-cap-shoppers-bargain-fashion-5-dollars.html?ns_mchannel=rss&amp;ns_campaign=1490&amp;ito=1490",
+          "publisher": "dailymail.co.uk",
+          "publishedAt": "2026-01-14T23:51:01.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226527-163",
+      "layer": "political",
+      "lat": 30.0444,
+      "lon": 31.2357,
+      "country": "Egypt",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Egypt vs Nigeria: AFCON prediction, kick-off time, TV, live stream, team news, h2h results, odds",
+      "danishTitle": "Egypt vs Nigeria: AFCON prediction, kick-off time, TV, live stream, team news, h2h results, odds",
+      "slug": "egypt-vs-nigeria-afcon-prediction-kick-off-time-tv-live-stream-team-news-h2h-res",
+      "severity": "medium",
+      "source": "standard.co.uk",
+      "sourceUrl": "https://www.standard.co.uk/sport/football/egypt-vs-nigeria-prediction-kick-off-time-tv-live-stream-team-news-latest-h2h-results-odds-afcon-2025-third-place-playoff-preview-b1266451.html",
+      "dotColor": "orange",
+      "timestamp": "2026-01-14T23:50:30.000Z",
+      "addedAt": "2026-01-15T00:17:06.527Z",
+      "status": "REPORTED",
+      "sources": [
+        "standard.co.uk"
+      ],
+      "articles": [
+        {
+          "title": "Egypt vs Nigeria: AFCON prediction, kick-off time, TV, live stream, team news, h2h results, odds",
+          "url": "https://www.standard.co.uk/sport/football/egypt-vs-nigeria-prediction-kick-off-time-tv-live-stream-team-news-latest-h2h-results-odds-afcon-2025-third-place-playoff-preview-b1266451.html",
+          "publisher": "standard.co.uk",
+          "publishedAt": "2026-01-14T23:50:30.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226527-168",
+      "layer": "political",
+      "lat": 51.5074,
+      "lon": -0.1278,
+      "country": "UK",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "New rules for Australians travelling to the UK and Ireland: What you need to know",
+      "danishTitle": "New rules for Australians travelling to the UK and Ireland: What you need to know",
+      "slug": "new-rules-for-australians-travelling-to-the-uk-and-ireland-what-you-need-to-know",
+      "severity": "medium",
+      "source": "dailymail.co.uk",
+      "sourceUrl": "https://www.dailymail.co.uk/news/article-15464697/australia-british-passport-changes-costs-visa-fee.html?ns_mchannel=rss&amp;ns_campaign=1490&amp;ito=1490",
+      "dotColor": "orange",
+      "timestamp": "2026-01-14T23:49:05.000Z",
+      "addedAt": "2026-01-15T00:17:06.527Z",
+      "status": "REPORTED",
+      "sources": [
+        "dailymail.co.uk"
+      ],
+      "articles": [
+        {
+          "title": "New rules for Australians travelling to the UK and Ireland: What you need to know",
+          "url": "https://www.dailymail.co.uk/news/article-15464697/australia-british-passport-changes-costs-visa-fee.html?ns_mchannel=rss&amp;ns_campaign=1490&amp;ito=1490",
+          "publisher": "dailymail.co.uk",
+          "publishedAt": "2026-01-14T23:49:05.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226528-171",
+      "layer": "political",
+      "lat": 34.0522,
+      "lon": -118.2437,
+      "country": "Unknown",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Federal Judges Uphold California’s New Congressional Maps",
+      "danishTitle": "Federal Judges Uphold California’s New Congressional Maps",
+      "slug": "federal-judges-uphold-california-s-new-congressional-maps",
+      "severity": "medium",
+      "source": "rss.nytimes.com",
+      "sourceUrl": "https://www.nytimes.com/2026/01/14/us/politics/federal-court-california-redistricting-decision.html",
+      "dotColor": "orange",
+      "timestamp": "2026-01-14T23:48:55.000Z",
+      "addedAt": "2026-01-15T00:17:06.528Z",
+      "status": "REPORTED",
+      "sources": [
+        "rss.nytimes.com"
+      ],
+      "articles": [
+        {
+          "title": "Federal Judges Uphold California’s New Congressional Maps",
+          "url": "https://www.nytimes.com/2026/01/14/us/politics/federal-court-california-redistricting-decision.html",
+          "publisher": "rss.nytimes.com",
+          "publishedAt": "2026-01-14T23:48:55.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226528-172",
+      "layer": "political",
+      "lat": 32.0853,
+      "lon": 34.7818,
+      "country": "Unknown",
+      "category": "sanctions_trade",
+      "danishCategory": "Sanktioner & handel",
+      "title": "Police chief behind Maccabi Tel Aviv ban clings to job despite home secretary wanting him to quit",
+      "danishTitle": "Police chief behind Maccabi Tel Aviv ban clings to job despite home secretary wanting him to quit",
+      "slug": "police-chief-behind-maccabi-tel-aviv-ban-clings-to-job-despite-home-secretary-wa",
+      "severity": "medium",
+      "source": "theguardian.com",
+      "sourceUrl": "https://www.theguardian.com/football/2026/jan/14/police-chief-behind-maccabi-tel-aviv-ban-clings-to-job-despite-home-secretary-wanting-him-to-quit",
+      "dotColor": "orange",
+      "timestamp": "2026-01-14T23:48:52.000Z",
+      "addedAt": "2026-01-15T00:17:06.528Z",
+      "status": "REPORTED",
+      "sources": [
+        "theguardian.com"
+      ],
+      "articles": [
+        {
+          "title": "Police chief behind Maccabi Tel Aviv ban clings to job despite home secretary wanting him to quit",
+          "url": "https://www.theguardian.com/football/2026/jan/14/police-chief-behind-maccabi-tel-aviv-ban-clings-to-job-despite-home-secretary-wanting-him-to-quit",
+          "publisher": "theguardian.com",
+          "publishedAt": "2026-01-14T23:48:52.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226528-175",
+      "layer": "political",
+      "lat": -33.8688,
+      "lon": 151.2093,
+      "country": "Unknown",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Brian Goorjian opens up on stunning Kings turnaround, ‘most powerful’ win of his career",
+      "danishTitle": "Brian Goorjian opens up on stunning Kings turnaround, ‘most powerful’ win of his career",
+      "slug": "brian-goorjian-opens-up-on-stunning-kings-turnaround-most-powerful-win-of-his-ca",
+      "severity": "medium",
+      "source": "news.com.au",
+      "sourceUrl": "https://www.foxsports.com.au/basketball/nbl/brian-goorjian-interview-on-sydney-kings-turnaround-emotional-victory-over-melbourne-united-title-contenders/news-story/8819ce83040cb3f9f23c905424b51022",
+      "dotColor": "orange",
+      "timestamp": "2026-01-14T23:48:00.000Z",
+      "addedAt": "2026-01-15T00:17:06.528Z",
+      "status": "REPORTED",
+      "sources": [
+        "news.com.au"
+      ],
+      "articles": [
+        {
+          "title": "Brian Goorjian opens up on stunning Kings turnaround, ‘most powerful’ win of his career",
+          "url": "https://www.foxsports.com.au/basketball/nbl/brian-goorjian-interview-on-sydney-kings-turnaround-emotional-victory-over-melbourne-united-title-contenders/news-story/8819ce83040cb3f9f23c905424b51022",
+          "publisher": "news.com.au",
+          "publishedAt": "2026-01-14T23:48:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226528-180",
+      "layer": "political",
+      "lat": 40.416782,
+      "lon": -3.703507,
+      "country": "Unknown",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Real Madrid-træner efter chokdebut: Fiasko er vejen til succes",
+      "danishTitle": "Real Madrid-træner efter chokdebut: Fiasko er vejen til succes",
+      "slug": "real-madrid-traener-efter-chokdebut-fiasko-er-vejen-til-succes",
+      "severity": "medium",
+      "source": "wallnot.dk",
+      "sourceUrl": "https://avisendanmark.dk/sport/real-madrid-traener-efter-chokdebut-fiasko-er-vejen-til-succes",
+      "dotColor": "orange",
+      "timestamp": "2026-01-14T23:46:31.000Z",
+      "addedAt": "2026-01-15T00:17:06.528Z",
+      "status": "REPORTED",
+      "sources": [
+        "wallnot.dk"
+      ],
+      "articles": [
+        {
+          "title": "Real Madrid-træner efter chokdebut: Fiasko er vejen til succes",
+          "url": "https://avisendanmark.dk/sport/real-madrid-traener-efter-chokdebut-fiasko-er-vejen-til-succes",
+          "publisher": "wallnot.dk",
+          "publishedAt": "2026-01-14T23:46:31.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226528-182",
+      "layer": "political",
+      "lat": 40.416782,
+      "lon": -3.703507,
+      "country": "Unknown",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Real Madrid-træner efter chokdebut: Fiasko er vejen til succes",
+      "danishTitle": "Real Madrid-træner efter chokdebut: Fiasko er vejen til succes",
+      "slug": "real-madrid-traener-efter-chokdebut-fiasko-er-vejen-til-succes",
+      "severity": "medium",
+      "source": "berlingske.dk",
+      "sourceUrl": "https://www.berlingske.dk/sport/real-madrid-traener-efter-chokdebut-fiasko-er-vejen-til-succes?referrer=RSS",
+      "dotColor": "orange",
+      "timestamp": "2026-01-14T23:45:45.000Z",
+      "addedAt": "2026-01-15T00:17:06.528Z",
+      "status": "REPORTED",
+      "sources": [
+        "berlingske.dk"
+      ],
+      "articles": [
+        {
+          "title": "Real Madrid-træner efter chokdebut: Fiasko er vejen til succes",
+          "url": "https://www.berlingske.dk/sport/real-madrid-traener-efter-chokdebut-fiasko-er-vejen-til-succes?referrer=RSS",
+          "publisher": "berlingske.dk",
+          "publishedAt": "2026-01-14T23:45:45.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226528-184",
+      "layer": "political",
+      "lat": 43.6532,
+      "lon": -79.3832,
+      "country": "Unknown",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Raptors Live Tracker: Toronto vs. Indiana",
+      "danishTitle": "Raptors Live Tracker: Toronto vs. Indiana",
+      "slug": "raptors-live-tracker-toronto-vs-indiana",
+      "severity": "medium",
+      "source": "sportsnet.ca",
+      "sourceUrl": "https://www.sportsnet.ca/basketball/nba/games/356dc947-104c-4666-b3c7-dc28d7336b00",
+      "dotColor": "orange",
+      "timestamp": "2026-01-14T23:45:28.000Z",
+      "addedAt": "2026-01-15T00:17:06.528Z",
+      "status": "REPORTED",
+      "sources": [
+        "sportsnet.ca"
+      ],
+      "articles": [
+        {
+          "title": "Raptors Live Tracker: Toronto vs. Indiana",
+          "url": "https://www.sportsnet.ca/basketball/nba/games/356dc947-104c-4666-b3c7-dc28d7336b00",
+          "publisher": "sportsnet.ca",
+          "publishedAt": "2026-01-14T23:45:28.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226528-193",
+      "layer": "political",
+      "lat": -35.2809,
+      "lon": 149.13,
+      "country": "Australia",
+      "category": "government_actions",
+      "danishCategory": "Statslige beslutninger",
+      "title": "Australian teenager is accused of triggering US mass shooting panic with idiotic act",
+      "danishTitle": "Australian teenager is accused of triggering US mass shooting panic with idiotic act",
+      "slug": "australian-teenager-is-accused-of-triggering-us-mass-shooting-panic-with-idiotic",
+      "severity": "medium",
+      "source": "dailymail.co.uk",
+      "sourceUrl": "https://www.dailymail.co.uk/news/article-15464845/Australian-teen-US-mass-shooting-hoax.html?ns_mchannel=rss&amp;ns_campaign=1490&amp;ito=1490",
+      "dotColor": "orange",
+      "timestamp": "2026-01-14T23:42:06.000Z",
+      "addedAt": "2026-01-15T00:17:06.528Z",
+      "status": "REPORTED",
+      "sources": [
+        "dailymail.co.uk"
+      ],
+      "articles": [
+        {
+          "title": "Australian teenager is accused of triggering US mass shooting panic with idiotic act",
+          "url": "https://www.dailymail.co.uk/news/article-15464845/Australian-teen-US-mass-shooting-hoax.html?ns_mchannel=rss&amp;ns_campaign=1490&amp;ito=1490",
+          "publisher": "dailymail.co.uk",
+          "publishedAt": "2026-01-14T23:42:06.000Z"
+        }
+      ]
+    },
+    {
+      "id": "rss-1768436226529-199",
+      "layer": "political",
+      "lat": 39.9042,
+      "lon": 116.4074,
+      "country": "China",
+      "category": "sanctions_trade",
+      "danishCategory": "Sanktioner & handel",
+      "title": "Trump Imposes Limited Tariffs on Foreign Semiconductors",
+      "danishTitle": "Trump Imposes Limited Tariffs on Foreign Semiconductors",
+      "slug": "trump-imposes-limited-tariffs-on-foreign-semiconductors",
+      "severity": "medium",
+      "source": "nytimes.com",
+      "sourceUrl": "https://www.nytimes.com/2026/01/14/business/economy/trump-chips-tariffs.html",
+      "dotColor": "orange",
+      "timestamp": "2026-01-14T23:41:55.000Z",
+      "addedAt": "2026-01-15T00:17:06.529Z",
+      "status": "REPORTED",
+      "sources": [
+        "nytimes.com"
+      ],
+      "articles": [
+        {
+          "title": "Trump Imposes Limited Tariffs on Foreign Semiconductors",
+          "url": "https://www.nytimes.com/2026/01/14/business/economy/trump-chips-tariffs.html",
+          "publisher": "nytimes.com",
+          "publishedAt": "2026-01-14T23:41:55.000Z"
+        }
+      ]
+    }
+  ],
+  "lastUpdated": "2026-01-15T00:17:06.529Z"
+}

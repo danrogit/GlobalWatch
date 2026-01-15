@@ -1,0 +1,152 @@
+{
+  "tehran": {
+    "lat": 35.6892523,
+    "lon": 51.3896004,
+    "displayName": "شهر تهران, بخش مرکزی شهرستان تهران, شهرستان تهران, استان تهران, ایران",
+    "confidence": 0.7
+  },
+  "madrid": {
+    "lat": 40.416782,
+    "lon": -3.703507,
+    "displayName": "Madrid, Comunidad de Madrid, España",
+    "confidence": 0.7
+  },
+  "barcelona": {
+    "lat": 41.3825802,
+    "lon": 2.177073,
+    "displayName": "Barcelona, Barcelonès, Barcelona, Catalunya, España",
+    "confidence": 0.7
+  },
+  "melbourne": {
+    "lat": -37.8142454,
+    "lon": 144.9631732,
+    "displayName": "Melbourne, City of Melbourne, Victoria, Australia",
+    "confidence": 0.7
+  },
+  "delhi": {
+    "lat": 28.6138954,
+    "lon": 77.2090057,
+    "displayName": "New Delhi, Delhi, India",
+    "confidence": 0.7
+  },
+  "middelfart": {
+    "lat": 55.4470028,
+    "lon": 9.9369808,
+    "displayName": "Middelfart Kommune, Region Syddanmark, Danmark",
+    "confidence": 0.7
+  },
+  "singapore": {
+    "lat": 1.357107,
+    "lon": 103.8194992,
+    "displayName": "Singapore",
+    "confidence": 0.7
+  },
+  "sønderborg": {
+    "lat": 54.9089186,
+    "lon": 9.7897999,
+    "displayName": "Sønderborg, Sønderborg Kommune, Region Syddanmark, 6400, Danmark",
+    "confidence": 0.7
+  },
+  "dubai": {
+    "lat": 25.0742823,
+    "lon": 55.1885387,
+    "displayName": "دبي, الإمارات العربية المتحدة",
+    "confidence": 0.7
+  },
+  "hjørring": {
+    "lat": 57.457183,
+    "lon": 9.9855998,
+    "displayName": "Hjørring, Hjørring Kommune, Region Nordjylland, 9800, Danmark",
+    "confidence": 0.7
+  },
+  "nyborg": {
+    "lat": 55.3098281,
+    "lon": 10.7976604,
+    "displayName": "Nyborg, Nyborg Kommune, 5800, Danmark",
+    "confidence": 0.7
+  },
+  "viborg": {
+    "lat": 56.4469128,
+    "lon": 9.4059354,
+    "displayName": "Viborg, Viborg Kommune, Region Midtjylland, 8800, Danmark",
+    "confidence": 0.7
+  },
+  "rome": {
+    "lat": 41.8933203,
+    "lon": 12.4829321,
+    "displayName": "Roma, Roma Capitale, Lazio, Italia",
+    "confidence": 0.7
+  },
+  "istanbul": {
+    "lat": 41.006381,
+    "lon": 28.9758715,
+    "displayName": "İstanbul, Fatih, İstanbul, Marmara Bölgesi, 34122, Türkiye",
+    "confidence": 0.7
+  },
+  "amsterdam": {
+    "lat": 52.3730796,
+    "lon": 4.8924534,
+    "displayName": "Amsterdam, Noord-Holland, Nederland",
+    "confidence": 0.7
+  },
+  "næstved": {
+    "lat": 55.2328252,
+    "lon": 11.7674102,
+    "displayName": "Næstved, Næstved Kommune, Region Sjælland, 4700, Danmark",
+    "confidence": 0.7
+  },
+  "slagelse": {
+    "lat": 55.4061196,
+    "lon": 11.3525415,
+    "displayName": "Slagelse, Slagelse Kommune, Region Sjælland, 4200, Danmark",
+    "confidence": 0.7
+  },
+  "brussels": {
+    "lat": 50.8467372,
+    "lon": 4.352493,
+    "displayName": "Bruxelles - Brussel, Brussel-Hoofdstad - Bruxelles-Capitale, Région de Bruxelles-Capitale - Brussels Hoofdstedelijk Gewest, België / Belgique / Belgien",
+    "confidence": 0.7
+  },
+  "svendborg": {
+    "lat": 55.0636625,
+    "lon": 10.6084725,
+    "displayName": "Svendborg, Svendborg Kommune, Region Syddanmark, 5700, Danmark",
+    "confidence": 0.7
+  },
+  "hillerød": {
+    "lat": 55.9285735,
+    "lon": 12.3063909,
+    "displayName": "Hillerød, Hillerød Kommune, Region Hovedstaden, 3400, Danmark",
+    "confidence": 0.7
+  },
+  "holbæk": {
+    "lat": 55.7186117,
+    "lon": 11.7135474,
+    "displayName": "Holbæk, Holbæk Kommune, Region Sjælland, 4300, Danmark",
+    "confidence": 0.7
+  },
+  "holstebro": {
+    "lat": 56.3590324,
+    "lon": 8.6159188,
+    "displayName": "Holstebro, Holstebro Kommune, Region Midtjylland, 7500, Danmark",
+    "confidence": 0.7
+  },
+  "frederikshavn": {
+    "lat": 57.4412134,
+    "lon": 10.5336225,
+    "displayName": "Frederikshavn, Frederikshavn Kommune, Region Nordjylland, 9900, Danmark",
+    "confidence": 0.7
+  },
+  "frederikssund": {
+    "lat": 55.8417752,
+    "lon": 12.063595,
+    "displayName": "Frederikssund, Frederikssund Kommune, Region Hovedstaden, 3600, Danmark",
+    "confidence": 0.7
+  },
+  "athens": {
+    "lat": 33.9597677,
+    "lon": -83.376398,
+    "displayName": "Athens, Clarke County, Georgia, United States",
+    "confidence": 0.7
+  }
+}

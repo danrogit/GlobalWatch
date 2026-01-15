@@ -1,0 +1,85 @@
+.denmark-map-container {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    background: #0b0b0b;
+}
+
+.denmark-count-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px 18px;
+    color: #f1f5f9;
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 100;
+}
+
+.event-marker {
+    transition: transform 0.2s ease;
+}
+
+.event-marker:hover {
+    transform: scale(1.4);
+    z-index: 100;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+/* MapLibre popup styling */
+.maplibregl-popup-content {
+    background: rgba(15, 15, 20, 0.95) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    color: #f1f5f9 !important;
+    padding: 8px 12px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+.maplibregl-popup-tip {
+    border-top-color: rgba(15, 15, 20, 0.95) !important;
+}
+
+.maplibregl-popup-close-button {
+    color: #94a3b8 !important;
+    font-size: 18px !important;
+    padding: 4px 8px !important;
+}
+
+.maplibregl-popup-close-button:hover {
+    color: #f1f5f9 !important;
+    background: transparent !important;
+}
+
+/* Hide MapLibre attribution on small screens */
+.maplibregl-ctrl-attrib {
+    font-size: 10px;
+    background: rgba(0, 0, 0, 0.6) !important;
+    color: #666 !important;
+}
+
+.maplibregl-ctrl-attrib a {
+    color: #888 !important;
+}
