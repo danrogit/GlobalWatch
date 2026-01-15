@@ -60,14 +60,32 @@ export function resolveLocation(
         };
     }
 
-    // FALLBACK: If no city or country match, return the first entity with low confidence
-    // This is better than failing completely - we can still show SOMETHING on the map
+    // FALLBACK: Try Nominatim geocoding for unknown locations
     if (sorted.length > 0) {
         const topEntity = sorted[0];
-        console.warn(`[Location Resolver] No exact match for "${topEntity.text}", using approximate location`);
+        console.log(`[Location Resolver] No exact match for "${topEntity.text}", trying Nominatim...`);
 
-        // Use a generic location based on entity type
-        // For now, default to a central location (Europe) with very low confidence
+        try {
+            const { geocodeLocation } = await import('./nominatim');
+            const nominatimResult = await geocodeLocation(topEntity.text);
+
+            if (nominatimResult) {
+                console.log(`[Location Resolver] ✅ Nominatim found: ${nominatimResult.display_name}`);
+                return {
+                    lat: nominatimResult.lat,
+                    lon: nominatimResult.lon,
+                    label: nominatimResult.display_name,
+                    confidence: topEntity.confidence * nominatimResult.importance,
+                    source: 'country-fallback',
+                    type: topEntity.type,
+                };
+            }
+        } catch (error) {
+            console.error('[Location Resolver] Nominatim failed:', error);
+        }
+
+        // Ultimate fallback: generic location
+        console.warn(`[Location Resolver] Using generic fallback for "${topEntity.text}"`);
         return {
             lat: 50.0, // Central Europe
             lon: 10.0,
