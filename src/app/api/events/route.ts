@@ -1,10 +1,13 @@
 import { NextResponse } from 'next/server';
 import { getAllGeoEvents } from '@/lib/db/events';
 
-export async function GET() {
+export async function GET(request: Request) {
     try {
+        const { searchParams } = new URL(request.url);
+        const days = parseInt(searchParams.get('days') || '90');
+
         // Get all events from SQLite
-        const events = getAllGeoEvents();
+        const events = getAllGeoEvents(days);
 
         console.log(`[API] Serving ${events.length} geo events from SQLite`);
 

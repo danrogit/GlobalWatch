@@ -23,7 +23,7 @@ export default function NyhederPage() {
     const [filter, setFilter] = useState<'all' | 'verified' | 'reported'>('all');
 
     useEffect(() => {
-        fetch('/api/events')
+        fetch('/api/events?days=90')
             .then(res => res.json())
             .then(data => {
                 setEvents(data.events || []);

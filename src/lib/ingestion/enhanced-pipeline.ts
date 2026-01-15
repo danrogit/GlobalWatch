@@ -23,35 +23,20 @@ export interface EnhancedPipelineOptions {
     enrichmentDelay?: number; // Delay between enrichments (ms)
 }
 
-export async function runEnhancedIngestionPipeline(options: EnhancedPipelineOptions = {}) {
+/**
+ * Step 1: Fetch and save articles from RSS feeds
+ */
+export async function fetchAndSaveArticles(options: EnhancedPipelineOptions = {}) {
     const {
         maxArticlesPerFeed = 50,
         maxConcurrent = 50,
         enableEnrichment = true,
-        enableTranslation = true,
-        enrichmentBatchSize = 10,
-        enrichmentDelay = 1000,
     } = options;
 
-    console.log('[Enhanced Pipeline] Starting ingestion...');
-    console.log(`  Enrichment: ${enableEnrichment ? '✅' : '❌'}`);
-    console.log(`  Translation: ${enableTranslation ? '✅' : '❌'}`);
-
-    // Check LibreTranslate availability
-    let translationAvailable = false;
-    if (enableTranslation) {
-        translationAvailable = await isLibreTranslateAvailable();
-        console.log(`  LibreTranslate: ${translationAvailable ? '✅ Available' : '❌ Not available'}`);
-    }
-
-    let savedCount = 0;
-    let enrichedCount = 0;
-    let translatedCount = 0;
-    let totalFetched = 0;
-    const articlesToEnrich: any[] = [];
-
-    // Step 1: Fetch and score articles
     console.log('\n[Step 1/3] Fetching articles from RSS feeds...');
+    let savedCount = 0;
+    let totalFetched = 0;
+
     await fetchAllFeeds({
         maxArticlesPerFeed,
         maxConcurrent,
@@ -79,10 +64,6 @@ export async function runEnhancedIngestionPipeline(options: EnhancedPipelineOpti
 
                     savedCount++;
 
-                    // Queue for enrichment if score is high enough
-                    if (enableEnrichment && score >= 30) {
-                        articlesToEnrich.push(article);
-                    }
                 } catch (error: any) {
                     // Ignore duplicates
                     if (!error.message.includes('UNIQUE')) {
@@ -92,29 +73,67 @@ export async function runEnhancedIngestionPipeline(options: EnhancedPipelineOpti
             }
 
             if (savedCount % 100 === 0) {
-                process.stdout.write(`\r  Saved ${savedCount} articles (${articlesToEnrich.length} queued for enrichment)...`);
+                process.stdout.write(`\r  Saved ${savedCount} articles...`);
             }
         }
     });
 
     console.log(`\n  ✅ Fetched ${totalFetched} articles, saved ${savedCount}`);
+    return { savedCount, totalFetched };
+}
 
-    // Step 2: Enrich articles with multi-layer location extraction
-    if (enableEnrichment && articlesToEnrich.length > 0) {
-        console.log(`\n[Step 2/3] Enriching ${articlesToEnrich.length} articles with multi-layer location extraction...`);
+/**
+ * Step 2 & 3: Process the pending queue (Enrichment + Translation)
+ */
+export async function processPendingQueue(options: EnhancedPipelineOptions = {}) {
+    const {
+        enrichmentBatchSize = 10,
+        enrichmentDelay = 1000,
+        enableEnrichment = true,
+        enableTranslation = true,
+    } = options;
 
-        for (let i = 0; i < articlesToEnrich.length; i += enrichmentBatchSize) {
-            const batch = articlesToEnrich.slice(i, i + enrichmentBatchSize);
+    let enrichedCount = 0;
+    let translatedCount = 0;
 
-            for (const article of batch) {
-                try {
+    // 1. Fetch pending articles (High score, no location source yet)
+    const pendingArticles = db.prepare(`
+        SELECT url, title, description, published_at 
+        FROM rss_articles 
+        WHERE geopolitics_score >= 30 
+        AND location_source IS NULL
+        ORDER BY published_at DESC
+        LIMIT 50
+    `).all() as any[];
+
+    if (pendingArticles.length === 0) {
+        console.log('[Queue] No pending articles to enrich.');
+        return { enrichedCount, translatedCount };
+    }
+
+    console.log(`\n[Queue] Processing ${pendingArticles.length} pending articles...`);
+
+    // Check LibreTranslate availability
+    let translationAvailable = false;
+    if (enableTranslation) {
+        translationAvailable = await isLibreTranslateAvailable();
+        console.log(`  LibreTranslate: ${translationAvailable ? '✅ Available' : '❌ Not available'}`);
+    }
+
+    // Process batch
+    for (let i = 0; i < pendingArticles.length; i += enrichmentBatchSize) {
+        const batch = pendingArticles.slice(i, i + enrichmentBatchSize);
+
+        for (const article of batch) {
+            try {
+                // ENRICHMENT
+                if (enableEnrichment) {
                     const enrichment = await enrichArticleLocation(
                         article.title,
                         article.url
                     );
 
                     if (enrichment) {
-                        // Update article with enrichment data
                         db.prepare(`
                             UPDATE rss_articles 
                             SET article_content = ?,
@@ -133,73 +152,57 @@ export async function runEnhancedIngestionPipeline(options: EnhancedPipelineOpti
                             enrichment.imageUrl,
                             article.url
                         );
-
                         enrichedCount++;
-
-                        if (enrichedCount % 5 === 0) {
-                            process.stdout.write(`\r  Enriched ${enrichedCount}/${articlesToEnrich.length} articles...`);
-                        }
                     }
-
                     // Rate limiting
                     await new Promise(resolve => setTimeout(resolve, enrichmentDelay));
-
-                } catch (error: any) {
-                    console.error(`\n  Error enriching ${article.url}: ${error.message}`);
-                }
-            }
-        }
-
-        console.log(`\n  ✅ Enriched ${enrichedCount} articles`);
-    }
-
-    // Step 3: Translate titles to Danish
-    if (enableTranslation && translationAvailable) {
-        console.log(`\n[Step 3/3] Translating titles to Danish...`);
-
-        const articlesNeedingTranslation = db.prepare(`
-            SELECT url, title FROM rss_articles 
-            WHERE geopolitics_score >= 30 
-            AND article_content IS NOT NULL
-            LIMIT 100
-        `).all() as any[];
-
-        for (const article of articlesNeedingTranslation) {
-            try {
-                const danishTitle = await translateToDanish(article.title);
-
-                db.prepare(`
-                    UPDATE rss_articles 
-                    SET danish_title = ?
-                    WHERE url = ?
-                `).run(danishTitle, article.url);
-
-                translatedCount++;
-
-                if (translatedCount % 10 === 0) {
-                    process.stdout.write(`\r  Translated ${translatedCount}/${articlesNeedingTranslation.length} titles...`);
                 }
 
-                // Rate limiting for LibreTranslate
-                await new Promise(resolve => setTimeout(resolve, 200));
+                // TRANSLATION
+                if (enableTranslation && translationAvailable) {
+                    const danishTitle = await translateToDanish(article.title);
+                    db.prepare(`
+                        UPDATE rss_articles 
+                        SET danish_title = ?
+                        WHERE url = ?
+                    `).run(danishTitle, article.url);
+                    translatedCount++;
+
+                    // Small delay for translation API
+                    await new Promise(resolve => setTimeout(resolve, 200));
+                }
+
+                process.stdout.write(`\r  Processed ${enrichedCount} enrichments, ${translatedCount} translations...`);
 
             } catch (error: any) {
-                console.error(`\n  Translation error: ${error.message}`);
+                console.error(`\n  Error processing ${article.url}: ${error.message}`);
             }
         }
-
-        console.log(`\n  ✅ Translated ${translatedCount} titles`);
     }
 
-    // Summary
+    console.log(`\n  ✅ Batch complete: ${enrichedCount} enriched, ${translatedCount} translated.`);
+    return { enrichedCount, translatedCount };
+}
+
+export async function runEnhancedIngestionPipeline(options: EnhancedPipelineOptions = {}) {
+    console.log('[Enhanced Pipeline] Starting full ingestion run...');
+
+    // 1. Fetch everything
+    const fetchStats = await fetchAndSaveArticles(options);
+
+    // 2. Process queue until empty (or hit limits suitable for a single run script)
+    // For this script, we'll do one large pass on the queue
+    console.log('\n[Step 2/3] Processing pending items...');
+    const processStats = await processPendingQueue(options);
+
     console.log('\n' + '='.repeat(60));
     console.log('📊 INGESTION SUMMARY');
     console.log('='.repeat(60));
-    console.log(`  Total Fetched: ${totalFetched}`);
-    console.log(`  Saved to DB: ${savedCount}`);
-    console.log(`  Enriched (location + quotes): ${enrichedCount}`);
-    console.log(`  Translated to Danish: ${translatedCount}`);
+    console.log(`  Total Fetched: ${fetchStats.totalFetched}`);
+    console.log(`  Saved to DB: ${fetchStats.savedCount}`);
+    console.log(`  Enriched: ${processStats.enrichedCount}`);
+    console.log(`  Translated: ${processStats.translatedCount}`);
     console.log('='.repeat(60));
 
-    return { savedCount, enrichedCount, translatedCount };
+    return { ...fetchStats, ...processStats };
 }

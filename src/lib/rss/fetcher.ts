@@ -101,26 +101,30 @@ function detectLanguage(feedUrl: string): string {
 }
 
 /**
- * Load feed URLs from rssfeeds.yaml
+ * Load feed URLs from rss.xml (ALL 1,125+ feeds)
  */
 export function loadFeedUrls(): string[] {
-    const yamlPath = path.join(process.cwd(), 'data', 'rss', 'fixed_rssfeeds.yaml');
+    const xmlPath = path.join(process.cwd(), 'data', 'rss', 'rss.xml');
 
     try {
-        const yamlContent = fs.readFileSync(yamlPath, 'utf8');
+        const xmlContent = fs.readFileSync(xmlPath, 'utf8');
 
-        // DIRECT REGEX EXTRACTION (Resulting from the file not being valid YAML)
-        // This is much more robust for the mixed content file the user provided
-        const urls = yamlContent.match(/https?:\/\/[^\s\n"']+/g) || [];
+        // Extract all URLs from the file (one per line)
+        const urls = xmlContent
+            .split('\n')
+            .map(line => line.trim())
+            .filter(line => line.startsWith('http'))
+            .filter(url =>
+                !url.includes('google.com/search') &&
+                !url.includes('example.com') &&
+                !url.includes('w3.org') &&
+                url.length > 10
+            );
 
-        return urls.filter(url =>
-            !url.includes('google.com/search') &&
-            !url.includes('example.com') &&
-            !url.includes('w3.org') &&
-            url.length > 10
-        );
+        console.log(`[RSS] Loaded ${urls.length} feed URLs from rss.xml`);
+        return urls;
     } catch (error) {
-        console.error('[RSS] Failed to load fixed_rssfeeds.yaml:', error);
+        console.error('[RSS] Failed to load rss.xml:', error);
         return [];
     }
 }

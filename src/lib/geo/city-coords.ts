@@ -74,6 +74,10 @@ export const CITY_COORDS: Record<string, CityCoords> = {
     'the pentagon': { lat: 38.8719, lon: -77.0563, country: 'USA' },
     'white house': { lat: 38.8977, lon: -77.0365, country: 'USA' },
     'capitol hill': { lat: 38.8899, lon: -77.0091, country: 'USA' },
+    'minneapolis': { lat: 44.9778, lon: -93.2650, country: 'USA' },
+    'california': { lat: 36.7783, lon: -119.4179, country: 'USA' }, // State center
+    'florida': { lat: 27.6648, lon: -81.5158, country: 'USA' }, // State center
+    'texas': { lat: 31.9686, lon: -99.9018, country: 'USA' }, // State center
 
     // === UK ===
     'london': { lat: 51.5074, lon: -0.1278, country: 'UK' },
@@ -159,6 +163,8 @@ export const CITY_COORDS: Record<string, CityCoords> = {
     'damascus': { lat: 33.5138, lon: 36.2765, country: 'Syria' },
     'aleppo': { lat: 36.2021, lon: 37.1343, country: 'Syria' },
     'beirut': { lat: 33.8938, lon: 35.5018, country: 'Lebanon' },
+    'sidon': { lat: 33.5630, lon: 35.3689, country: 'Lebanon' },
+    'tyre': { lat: 33.2733, lon: 35.1939, country: 'Lebanon' },
     'baghdad': { lat: 33.3152, lon: 44.3661, country: 'Iraq' },
     'riyadh': { lat: 24.7136, lon: 46.6753, country: 'Saudi Arabia' },
     'dubai': { lat: 25.2048, lon: 55.2708, country: 'UAE' },

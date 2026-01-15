@@ -229,7 +229,11 @@ export function clusterEvents(rawEvents: RawGdeltEvent[]): AggregatedEvent[] {
                 publisher: extractSourceName(url),
                 publishedAt: lastUpdated.toISOString(),
                 language: 'en', // Assumption
-                apiSource: 'gdelt_signal'
+                apiSource: 'gdelt_signal',
+                // Add required MediaSource properties
+                name: extractSourceName(url),
+                headline: title,
+                excerpt: ''
             };
         });
 

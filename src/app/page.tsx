@@ -41,7 +41,7 @@ export default function HomePage() {
   useEffect(() => {
     async function fetchEvents() {
       try {
-        const response = await fetch('/api/events');
+        const response = await fetch('/api/events?days=7');
         if (!response.ok) {
           throw new Error('Failed to fetch events');
         }
@@ -204,11 +204,11 @@ export default function HomePage() {
           {viewMode === 'global' ? (
             <Globe events={events} paused={isPaused} onPauseChange={setIsPaused} />
           ) : (
-            <DenmarkMap events={events} />
+            <DenmarkMap events={events as any[]} />
           )}
 
           {/* Sidebar - Right Side */}
-          <Sidebar events={events} viewMode={viewMode} />
+          <Sidebar events={events as any[]} viewMode={viewMode} />
 
           {/* Event Counter - Danish */}
           <div className="event-counter">

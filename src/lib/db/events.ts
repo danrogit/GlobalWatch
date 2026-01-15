@@ -37,8 +37,12 @@ export function getEventByNormalizedTitle(normalizedTitle: string): GeoEventRow 
     return db.prepare('SELECT * FROM geo_events WHERE normalized_title = ?').get(normalizedTitle) as GeoEventRow | undefined;
 }
 
-export function getAllGeoEvents() {
-    const rows = db.prepare('SELECT * FROM geo_events ORDER BY event_date DESC').all() as GeoEventRow[];
+export function getAllGeoEvents(days: number = 90) {
+    const rows = db.prepare(`
+        SELECT * FROM geo_events 
+        WHERE date(event_date) >= date('now', '-' || ? || ' days')
+        ORDER BY event_date DESC
+    `).all(days) as GeoEventRow[];
     return rows.map(row => JSON.parse(row.json_data));
 }
 

@@ -4,22 +4,28 @@
  * Includes multi-layer location extraction, translation, and quote extraction
  */
 
+import { db } from '../src/lib/db/index';
 import { runEnhancedIngestionPipeline } from '../src/lib/ingestion/enhanced-pipeline';
+import { generateEventsFromEnrichedArticles } from '../src/lib/ingestion/event-generation';
 
 (async () => {
     try {
         console.log('🚀 Starting Enhanced Ingestion Pipeline\n');
 
+        // Run pipeline - FULL PRODUCTION MODE
         await runEnhancedIngestionPipeline({
-            maxArticlesPerFeed: 20, // Limit for testing
-            maxConcurrent: 10,
+            maxArticlesPerFeed: 500, // Get everything available
+            maxConcurrent: 100, // High concurrency for speed
             enableEnrichment: true,
             enableTranslation: true,
-            enrichmentBatchSize: 5,
-            enrichmentDelay: 1500, // 1.5s between enrichments
+            enrichmentBatchSize: 50, // Process more at once
+            enrichmentDelay: 500 // Faster processing
         });
 
-        console.log('\n✅ Pipeline complete!');
+        // Generate events
+        await generateEventsFromEnrichedArticles();
+
+        console.log('\n✅ Manual run complete.');
         process.exit(0);
 
     } catch (error: any) {

@@ -95,10 +95,8 @@ export default async function EventPage({ params }: PageProps) {
     // Convert country code to full name
     const countryName = getCountryName(event.country);
 
+    // FIX: Cast LAYER_MAPPING to allow string indexing
     const layerInfo = (LAYER_MAPPING as Record<string, any>)[event.dotColor] || LAYER_MAPPING.orange;
-
-    // Static OSM map URL
-    const osmMapUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${event.lon - 2},${event.lat - 1.5},${event.lon + 2},${event.lat + 1.5}&layer=mapnik&marker=${event.lat},${event.lon}`;
 
     // JSON-LD structured data
     const jsonLd = {

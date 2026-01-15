@@ -15,10 +15,10 @@ interface Props {
 // Dark basemap style (CARTO Dark Matter - no API key needed)
 const DARK_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
 
-// Denmark bounds [west, south], [east, north]
+// Denmark bounds - Expanded to allow viewing context (Northern Europe)
 const DENMARK_BOUNDS: [[number, number], [number, number]] = [
-    [7.9, 54.4],
-    [15.3, 57.9],
+    [3.0, 53.0],   // Southwest (North Sea/Germany)
+    [20.0, 60.0],  // Northeast (Sweden/Norway)
 ];
 
 // Helper: build a world-sized polygon with Denmark as a hole (mask everything else)
@@ -109,15 +109,15 @@ export default function DenmarkMap({ events }: Props) {
         <div className="denmark-map-container">
             <Map
                 initialViewState={{
-                    longitude: 10.2,
-                    latitude: 56.0,
-                    zoom: 4.5,       // Zoomed out more to show broader region
+                    longitude: 11.0,
+                    latitude: 56.2,
+                    zoom: 5.5,       // Appropriate zoom for the expanded bounds
                     pitch: 0,        // Top-down view
                     bearing: 0,      // No rotation
                 }}
                 mapStyle={DARK_STYLE}
                 maxBounds={DENMARK_BOUNDS}
-                minZoom={4.0}
+                minZoom={3.0}
                 maxZoom={12}
                 dragRotate={true}
                 touchZoomRotate={true}
