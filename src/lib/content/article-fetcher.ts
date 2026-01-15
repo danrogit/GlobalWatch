@@ -77,35 +77,6 @@ export async function fetchArticleContent(url: string): Promise<ArticleContent |
             console.error(`[Article Fetcher] Error fetching ${url}:`, error.message);
         }
 
-        // FALLBACK: Try SearXNG if direct fetch failed
-        console.log(`[Article Fetcher] Attempting SearXNG fallback for ${url}`);
-        try {
-            const { searchArticle } = await import('../search/searxng');
-
-            // Extract title from URL or use a generic search
-            const urlParts = url.split('/').filter(p => p.length > 3);
-            const searchQuery = urlParts[urlParts.length - 1]?.replace(/[-_]/g, ' ') || 'article';
-
-            const searxResult = await searchArticle(searchQuery, url);
-
-            if (searxResult && searxResult.content) {
-                console.log(`[Article Fetcher] ✅ SearXNG fallback successful`);
-
-                // Return content from SearXNG
-                return {
-                    title: searxResult.title,
-                    content: searxResult.content,
-                    textContent: searxResult.content.replace(/<[^>]*>/g, ''), // Strip HTML
-                    excerpt: searxResult.content.substring(0, 200),
-                    byline: null,
-                    length: searxResult.content.length,
-                    siteName: new URL(url).hostname,
-                    imageUrl: null,
-                };
-            }
-        } catch (searxError) {
-            console.error(`[Article Fetcher] SearXNG fallback also failed:`, searxError);
-        }
 
         return null;
     }
