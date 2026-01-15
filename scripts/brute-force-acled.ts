@@ -4,7 +4,7 @@ const PASS = process.env.ACLED_PASSWORD || '7Z5p4Z7oiMmDX9jxKBL5ePBNKdqkJa';
 
 const BASE_URL = 'https://acleddata.com/api/acled/read';
 
-async function testEndpoint(name, params = {}, headers = {}) {
+async function testEndpoint(name: string, params: Record<string, string> = {}, headers: Record<string, string> = {}) {
     console.log(`\n--- Testing ${name} ---`);
     const qs = new URLSearchParams({ limit: '1', ...params }).toString();
     const url = `${BASE_URL}?${qs}`;
@@ -15,7 +15,7 @@ async function testEndpoint(name, params = {}, headers = {}) {
         console.log(`Status: ${resp.status}`);
         const text = await resp.text();
         console.log(`Body: ${text.substring(0, 150)}`);
-    } catch (e) {
+    } catch (e: any) {
         console.log(`Failed: ${e.message}`);
     }
 }

@@ -72,7 +72,7 @@ export async function runEnhancedIngestionPipeline(options: EnhancedPipelineOpti
                         article.url,
                         article.title,
                         article.description || '',
-                        article.pubDate ? new Date(article.pubDate).toISOString() : new Date().toISOString(),
+                        article.publishedAt ? new Date(article.publishedAt).toISOString() : new Date().toISOString(),
                         score,
                         article.source || 'unknown'
                     );

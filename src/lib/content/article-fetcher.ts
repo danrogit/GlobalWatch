@@ -5,6 +5,7 @@
  * Removes ads, navigation, headers, footers using Readability
  */
 
+// @ts-ignore
 import { JSDOM } from 'jsdom';
 import { Readability } from '@mozilla/readability';
 
@@ -59,14 +60,14 @@ export async function fetchArticleContent(url: string): Promise<ArticleContent |
         }
 
         return {
-            title: article.title,
-            content: article.content, // HTML content
-            textContent: article.textContent, // Plain text
-            excerpt: article.excerpt,
-            byline: article.byline,
-            length: article.length,
-            siteName: article.siteName,
-            imageUrl: mainImage,
+            title: article.title || '',
+            content: article.content || '', // HTML content
+            textContent: article.textContent || '', // Plain text
+            excerpt: article.excerpt || '',
+            byline: article.byline || null,
+            length: article.length || 0,
+            siteName: article.siteName || null,
+            imageUrl: mainImage || null,
         };
 
     } catch (error: any) {

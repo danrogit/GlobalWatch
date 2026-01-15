@@ -24,11 +24,7 @@ export async function extractArticle(url: string): Promise<ExtractedArticle> {
         const domain = extractDomain(url);
 
         // Fetch and extract article
-        const article = await extract(url, {
-            headers: {
-                'User-Agent': 'GlobalWatch/1.0 (News Aggregator; +https://globalwatch.example.com)',
-            }
-        });
+        const article = await extract(url);
 
         if (!article || !article.content) {
             return {

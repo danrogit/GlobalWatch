@@ -136,7 +136,7 @@ async function runFullPipeline() {
                     title: article.title,
                     url: article.url,
                     description: article.description || '',
-                    published_at: article.pubDate || new Date().toISOString(),
+                    published_at: article.publishedAt || new Date().toISOString(),
                     source_name: article.source,
                     feed_url: article.feedUrl || '',
                     tags: '{}',
@@ -154,7 +154,7 @@ async function runFullPipeline() {
                         description: article.description || '',
                         feed_url: article.feedUrl || '',
                         url: article.url,
-                        published_at: article.pubDate || new Date().toISOString(),
+                        published_at: article.publishedAt || new Date().toISOString(),
                         source_name: article.source,
                         score
                     });

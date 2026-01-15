@@ -19,6 +19,8 @@ export interface Article {
 
 export interface UnifiedEvent {
     id: string;
+    slug: string;
+    source?: string;
     title: string;
     summary: string; // Computed or taken from best article
     country: string;

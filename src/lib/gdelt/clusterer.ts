@@ -265,7 +265,13 @@ export function clusterEvents(rawEvents: RawGdeltEvent[]): AggregatedEvent[] {
                 url: stub.url,
                 publishedAt: stub.publishedAt
             })),
-            articles: articleStubs, // Include stubs as articles
+            articles: articleStubs.map(stub => ({
+                name: stub.publisher,
+                headline: stub.title,
+                excerpt: '',
+                url: stub.url,
+                publishedAt: stub.publishedAt
+            })),
             firstSeen: firstSeen.toISOString(),
             lastUpdated: lastUpdated.toISOString(),
         };

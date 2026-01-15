@@ -94,7 +94,7 @@ export default async function EventPage({ params }: PageProps) {
     // Convert country code to full name
     const countryName = getCountryName(event.country);
 
-    const layerInfo = LAYER_MAPPING[event.dotColor] || LAYER_MAPPING.orange;
+    const layerInfo = (LAYER_MAPPING as Record<string, any>)[event.dotColor] || LAYER_MAPPING.orange;
 
     // Static OSM map URL
     const osmMapUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${event.lon - 2},${event.lat - 1.5},${event.lon + 2},${event.lat + 1.5}&layer=mapnik&marker=${event.lat},${event.lon}`;
@@ -303,7 +303,7 @@ export default async function EventPage({ params }: PageProps) {
                                 <section className="event-section">
                                     <h2 className="event-section-title">📰 Verificerede Kilder ({event.articles.length})</h2>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                                        {event.articles.map((article, idx) => (
+                                        {event.articles.map((article: any, idx: number) => (
                                             <a
                                                 key={idx}
                                                 href={article.url}
@@ -365,7 +365,7 @@ export default async function EventPage({ params }: PageProps) {
                                 <section className="event-section">
                                     <h2 className="event-section-title">🌐 GDELT Kilder ({event.gdeltSourceUrls.length})</h2>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', maxHeight: '300px', overflowY: 'auto' }}>
-                                        {event.gdeltSourceUrls.map((url, idx) => (
+                                        {event.gdeltSourceUrls.map((url: string, idx: number) => (
                                             <a
                                                 key={idx}
                                                 href={url}

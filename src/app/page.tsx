@@ -25,24 +25,14 @@ const DenmarkMap = dynamic(() => import('@/components/DenmarkMap/DenmarkMap'), {
   ),
 });
 
-interface EventData {
-  id: string;
-  lat: number;
-  lon: number;
-  severity: 'low' | 'medium' | 'high';
-  title: string;
-  slug: string;
-  timestamp: string;
-  eventCount: number;
-  country?: string;
-}
+import { UnifiedEvent } from '@/lib/data/types';
 
 import Sidebar from '@/components/Sidebar/Sidebar';
 
 type ViewMode = 'global' | 'denmark';
 
 export default function HomePage() {
-  const [events, setEvents] = useState<EventData[]>([]);
+  const [events, setEvents] = useState<UnifiedEvent[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<ViewMode>('global');

@@ -14,6 +14,7 @@ export interface RssArticle {
     url: string;
     publishedAt: string;
     source: string;        // Domain name (e.g., "dr.dk")
+    feedUrl?: string;
     description?: string;
     language?: string;     // 'da' for Danish, 'en' for English, etc.
 }
@@ -45,6 +46,7 @@ function parseRssFeed(xml: string, feedUrl: string): RssArticle[] {
                 url: link,
                 publishedAt: pubDate ? new Date(pubDate).toISOString() : new Date().toISOString(),
                 source,
+                feedUrl,
                 description: description ? cleanHtml(description).substring(0, 300) : undefined,
                 language: detectLanguage(feedUrl)
             });

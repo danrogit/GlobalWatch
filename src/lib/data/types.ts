@@ -39,6 +39,7 @@ export interface UnifiedEvent {
     // Impact
     severity: SeverityLevel;
     fatalities?: number;
+    eventCount?: number;
 
     // Attribution
     source: string;

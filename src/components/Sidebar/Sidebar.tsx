@@ -4,31 +4,14 @@ import { useRouter } from 'next/navigation';
 import { useMemo } from 'react';
 import { getCountryEmoji } from '@/lib/geo/country-emoji';
 
-interface EventData {
-    id: string;
-    lat: number;
-    lon: number;
-    severity: 'low' | 'medium' | 'high';
-    title: string;
-    slug: string;
-    timestamp: string;
-    eventCount: number;
-    country?: string;
-    dotColor?: 'blue' | 'orange' | 'red' | 'green';
-    layer?: 'incident' | 'political';
-    danishTitle?: string;
-    danishCategory?: string;
-    status?: 'VERIFIED' | 'REPORTED' | 'UNVERIFIED';
-    sources?: string[];
-}
+import { UnifiedEvent } from '@/lib/data/types';
 
 type ViewMode = 'global' | 'denmark';
 
 interface SidebarProps {
-    events: EventData[];
+    events: UnifiedEvent[];
     viewMode?: ViewMode;
 }
-
 // Denmark bounds
 const DENMARK_BOUNDS = {
     north: 57.8,
@@ -68,7 +51,7 @@ function translateEventType(eventType: string): string {
 }
 
 // Create Danish title from event
-function getDanishTitle(event: EventData): string {
+function getDanishTitle(event: UnifiedEvent): string {
     if (event.danishTitle) return event.danishTitle;
 
     // Fallback: translate common patterns

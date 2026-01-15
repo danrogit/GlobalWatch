@@ -2,7 +2,7 @@
 import { fetchAllFeeds } from '../src/lib/rss/fetcher.js';
 
 // Re-implement basic fetch/parse for single feed to avoid full fetcher overhead
-async function fetchFeed(url) {
+async function fetchFeed(url: string): Promise<any[]> {
     console.log(`Fetching ${url}...`);
     const res = await fetch(url);
     const xml = await res.text();

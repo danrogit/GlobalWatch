@@ -14,7 +14,7 @@ interface EventDot {
     title: string;
     slug: string;
     timestamp: string;
-    eventCount: number;
+    eventCount?: number;
     dotColor?: 'blue' | 'orange' | 'red' | 'green';
     layer?: 'incident' | 'political';
 }
