@@ -10,7 +10,7 @@ export interface TranslationResult {
 }
 
 // Configuration
-const LIBRETRANSLATE_URL = process.env.LIBRETRANSLATE_URL;
+const LIBRETRANSLATE_URL = process.env.LIBRETRANSLATE_URL || 'http://localhost:5000';
 const MYMEMORY_API_URL = 'https://api.mymemory.translated.net/get';
 
 // Simple in-memory cache for translations
