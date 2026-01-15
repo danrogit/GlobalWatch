@@ -253,6 +253,18 @@ export const CITY_COORDS: Record<string, CityCoords> = {
     'kabul': { lat: 34.5553, lon: 69.2075, country: 'Afghanistan' },
     'pyongyang': { lat: 39.0392, lon: 125.7625, country: 'North Korea' },
     'seoul': { lat: 37.5665, lon: 126.9780, country: 'South Korea' },
+
+    // === ADDITIONAL EUROPEAN CITIES ===
+    'utrecht': { lat: 52.0907, lon: 5.1214, country: 'Netherlands' },
+    'rotterdam': { lat: 51.9225, lon: 4.4792, country: 'Netherlands' },
+    'the hague': { lat: 52.0705, lon: 4.3007, country: 'Netherlands' },
+    'oulu': { lat: 65.0121, lon: 25.4651, country: 'Finland' },
+    'turku': { lat: 60.4518, lon: 22.2666, country: 'Finland' },
+    'tampere': { lat: 61.4978, lon: 23.7610, country: 'Finland' },
+    'trenčín': { lat: 48.8946, lon: 18.0444, country: 'Slovakia' },
+    'bratislava': { lat: 48.1486, lon: 17.1077, country: 'Slovakia' },
+    'maine': { lat: 45.2538, lon: -69.4455, country: 'USA' }, // State center
+    'portland maine': { lat: 43.6591, lon: -70.2568, country: 'USA' },
 };
 
 /**

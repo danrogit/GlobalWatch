@@ -151,6 +151,10 @@ function getCountryCoords(countryName: string): CityCoords | null {
         'hungary': 'budapest',
         'romania': 'bucharest',
         'czech republic': 'prague',
+        'slovakia': 'bratislava',
+        'estonia': 'tallinn',
+        'latvia': 'riga',
+        'lithuania': 'vilnius',
     };
 
     const normalized = countryName.toLowerCase();
