@@ -66,7 +66,6 @@ export const CITY_COORDS: Record<string, CityCoords> = {
     'atlanta': { lat: 33.7490, lon: -84.3880, country: 'USA' },
     'miami': { lat: 25.7617, lon: -80.1918, country: 'USA' },
     'detroit': { lat: 42.3314, lon: -83.0458, country: 'USA' },
-    'las vegas': { lat: 36.1699, lon: -115.1398, country: 'USA' },
     'portland': { lat: 45.5152, lon: -122.6784, country: 'USA' },
     'baltimore': { lat: 39.2904, lon: -76.6122, country: 'USA' },
     'cleveland': { lat: 41.4993, lon: -81.6944, country: 'USA' },
@@ -293,8 +292,6 @@ export const CITY_COORDS: Record<string, CityCoords> = {
     'ramaphosa': { lat: -25.7479, lon: 28.2293, country: 'South Africa' }, // Often mentioned with Pretoria
 
     // === MORE US CITIES ===
-    'las vegas': { lat: 36.1699, lon: -115.1398, country: 'USA' }, // Already exists but adding alias
-    'minneapolis': { lat: 44.9778, lon: -93.2650, country: 'USA' }, // Already exists
 
     // === GREENLAND ===
     'greenland': { lat: 71.7069, lon: -42.6043, country: 'Greenland' },
