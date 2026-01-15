@@ -79,7 +79,7 @@ export async function enrichArticleLocation(
         console.log('  ⚠️ Direct fetch failed - using RSS description as fallback');
 
         // FALLBACK: Use RSS description + title as content
-        textContent = `${title}\n\n${description || ''}`;
+        textContent = `${title}\n\n`;
         firstParagraphs = textContent;
 
         // Create minimal article content object
@@ -87,7 +87,7 @@ export async function enrichArticleLocation(
             title: title,
             content: textContent,
             textContent: textContent,
-            excerpt: description?.substring(0, 200) || '',
+            excerpt: '',
             byline: null,
             length: textContent.length,
             siteName: null,
