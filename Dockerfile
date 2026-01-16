@@ -18,8 +18,8 @@ WORKDIR /app
 # Copy package files first for better layer caching
 COPY package*.json ./
 
-# Install Node.js dependencies
-RUN npm ci --omit=dev
+# Install Node.js dependencies (including dev dependencies for build)
+RUN npm ci
 
 # Install LibreTranslate (using --break-system-packages for Docker environment)
 RUN pip3 install --break-system-packages libretranslate
