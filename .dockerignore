@@ -1,0 +1,12 @@
+node_modules
+.next
+.git
+.env
+*.log
+.gitignore
+README.md
+.vscode
+.idea
+*.md
+data/gdelt
+data/acled
