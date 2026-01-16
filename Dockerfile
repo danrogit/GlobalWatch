@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
     python3-pip \
     python3-dev \
+    python3-venv \
     build-essential \
     curl \
     wget \
@@ -14,13 +15,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Set working directory
 WORKDIR /app
 
-# Copy package files
+# Copy package files first for better layer caching
 COPY package*.json ./
 
 # Install Node.js dependencies
-RUN npm ci
+RUN npm ci --omit=dev
 
-# Install LibreTranslate
+# Install LibreTranslate (using --break-system-packages for Docker environment)
 RUN pip3 install --break-system-packages libretranslate
 
 # Copy application code
