@@ -1,24 +1,19 @@
 {
-    "providers": [
-        "node",
-        "python"
-    ],
     "phases": {
         "setup": {
-            "nixPkgs": [
-                "python311",
-                "python311Packages.pip",
-                "gcc"
-            ],
             "aptPkgs": [
                 "build-essential",
-                "python3-dev"
+                "python3-dev",
+                "python3",
+                "python3-pip",
+                "curl",
+                "wget"
             ]
         },
         "install": {
             "cmds": [
                 "npm ci",
-                "pip install libretranslate"
+                "pip3 install libretranslate"
             ]
         }
     }
