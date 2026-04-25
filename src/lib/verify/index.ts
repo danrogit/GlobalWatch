@@ -328,7 +328,7 @@ export const COUNTRY_NAMES: Record<string, string> = {
 export function getCountryName(codeOrName: string | undefined | null): string {
     // Handle undefined/null
     if (!codeOrName) {
-        return 'Ukendt'; // Danish for "Unknown"
+        return 'Unknown';
     }
 
     // If it's already a full name, return it

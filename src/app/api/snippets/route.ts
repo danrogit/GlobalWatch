@@ -1,17 +1,16 @@
-// API endpoint for fetching and translating article snippets
+// API endpoint for fetching article snippets
 // With strict content verification
 
 import { NextRequest, NextResponse } from 'next/server';
 import { extractArticle } from '@/lib/articles/extractor';
 import { extractSnippet, checkRelevance } from '@/lib/articles/snippets';
-import { translateToDanish } from '@/lib/translate/danish';
 import { verifyArticleContent, verifySourceDomain, getCountryName } from '@/lib/verify';
 
 export interface TranslatedSnippet {
     url: string;
     domain: string;
     original: string;
-    danish: string;
+    text: string;
     success: boolean;
     isRelevant: boolean;
 }
@@ -89,15 +88,12 @@ export async function GET(request: NextRequest) {
                 continue;
             }
 
-            // Translate to Danish
-            const translation = await translateToDanish(snippet.original);
-
             const result: TranslatedSnippet = {
                 url,
                 domain: article.domain,
                 original: snippet.original,
-                danish: translation.translated,
-                success: translation.success,
+                text: snippet.original,
+                success: true,
                 isRelevant: true
             };
 

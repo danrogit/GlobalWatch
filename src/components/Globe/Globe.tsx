@@ -27,7 +27,7 @@ interface GlobeProps {
     onPauseChange?: (paused: boolean) => void; // Callback for auto-pause
 }
 
-// Danish translations for major countries
+// Legacy country label overrides.
 const DANISH_NAMES: Record<string, string> = {
     'United States of America': 'USA',
     'United Kingdom': 'Storbritannien',
@@ -57,7 +57,7 @@ const DANISH_NAMES: Record<string, string> = {
     'Belgium': 'Belgien',
     'Sweden': 'Sverige',
     'Norway': 'Norge',
-    'Denmark': 'Danmark',
+    'Denmark': 'Denmark',
     'Finland': 'Finland',
     'Switzerland': 'Schweiz',
     'Austria': 'Østrig',
@@ -135,14 +135,19 @@ export default function Globe({ events, onEventClick, focusOn, paused = false, o
         mouse: THREE.Vector2;
     } | null>(null);
     const eventsRef = useRef<EventDot[]>([]);
+    const pausedRef = useRef(paused);
     const router = useRouter();
 
-    eventsRef.current = events;
+    useEffect(() => {
+        eventsRef.current = events;
+    }, [events]);
 
     // Handle rotation pause
     useEffect(() => {
+        pausedRef.current = paused;
         if (sceneDataRef.current) {
             sceneDataRef.current.controls.autoRotate = !paused;
+            sceneDataRef.current.controls.update();
         }
     }, [paused]);
 
@@ -262,9 +267,6 @@ export default function Globe({ events, onEventClick, focusOn, paused = false, o
                     // Label Logic
                     const englishName = feature.properties?.NAME;
                     if (englishName && (feature.properties?.scalerank < 2 || !feature.properties?.scalerank)) {
-                        // Translate to Danish
-                        const danishName = DANISH_NAMES[englishName] || englishName;
-
                         let ringToUse: number[][] | null = null;
                         if (geometry.type === 'Polygon') {
                             ringToUse = geometry.coordinates[0];
@@ -289,7 +291,7 @@ export default function Globe({ events, onEventClick, focusOn, paused = false, o
                             const centerLat = (minLat + maxLat) / 2;
                             const centerLon = (minLon + maxLon) / 2;
 
-                            const labelMesh = createLabel(danishName);
+                            const labelMesh = createLabel(englishName);
                             if (labelMesh) {
                                 const [x, y, z] = latLonToPosition(centerLat, centerLon, 1.005);
                                 labelMesh.position.set(x, y, z);
@@ -399,22 +401,20 @@ export default function Globe({ events, onEventClick, focusOn, paused = false, o
                 if (intersects.length > 0 && intersects[0].instanceId !== undefined) {
                     const instanceId = intersects[0].instanceId;
 
-                    // Find which event this corresponds to
-                    let eventIndex = 0;
                     if (mesh === data.markersHigh) {
-                        const highEvents = eventsRef.current.filter(e => e.severity === 'high');
+                        const highEvents = eventsRef.current.filter(e => e.dotColor === 'red' || (!e.dotColor && e.severity === 'high'));
                         if (highEvents[instanceId]) {
                             router.push(`/event/${highEvents[instanceId].slug}`);
                             return;
                         }
                     } else if (mesh === data.markersMed) {
-                        const medEvents = eventsRef.current.filter(e => e.severity === 'medium');
+                        const medEvents = eventsRef.current.filter(e => e.dotColor === 'orange' || (!e.dotColor && e.severity === 'medium'));
                         if (medEvents[instanceId]) {
                             router.push(`/event/${medEvents[instanceId].slug}`);
                             return;
                         }
                     } else if (mesh === data.markersLow) {
-                        const lowEvents = eventsRef.current.filter(e => e.severity === 'low');
+                        const lowEvents = eventsRef.current.filter(e => e.dotColor === 'green' || e.dotColor === 'blue' || (!e.dotColor && e.severity === 'low'));
                         if (lowEvents[instanceId]) {
                             router.push(`/event/${lowEvents[instanceId].slug}`);
                             return;
@@ -431,6 +431,7 @@ export default function Globe({ events, onEventClick, focusOn, paused = false, o
             const data = sceneDataRef.current;
             if (!data) return;
             data.animFrame = requestAnimationFrame(animate);
+            data.controls.autoRotate = !pausedRef.current;
             data.controls.update();
 
             // Blinking logic
@@ -690,8 +691,8 @@ export default function Globe({ events, onEventClick, focusOn, paused = false, o
                                     : 'rgba(239, 68, 68, 0.3)'
                                 }`
                         }}>
-                            {hoveredEvent.event.dotColor === 'green' ? 'Bekræftet' :
-                                hoveredEvent.event.dotColor === 'orange' ? 'Rapporteret' : 'Ubekræftet'}
+                            {hoveredEvent.event.dotColor === 'green' ? 'Verified' :
+                                hoveredEvent.event.dotColor === 'orange' ? 'Reported' : 'Unverified'}
                         </div>
 
                         {/* Title */}
@@ -718,7 +719,7 @@ export default function Globe({ events, onEventClick, focusOn, paused = false, o
                             marginTop: '6px',
                             marginBottom: 0
                         }} suppressHydrationWarning>
-                            {new Date(hoveredEvent.event.timestamp).toLocaleString('da-DK', {
+                            {new Date(hoveredEvent.event.timestamp).toLocaleString('en-US', {
                                 day: 'numeric',
                                 month: 'short',
                                 hour: '2-digit',

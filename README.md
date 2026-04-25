@@ -1,153 +1,214 @@
-# GlobalWatch - Situational Awareness Globe
+# GlobalWatch
 
-A real-time 3D globe visualization of global geopolitical events, powered by GDELT data.
+GlobalWatch is an open-source situational awareness dashboard for monitoring geopolitical signals on an interactive globe.
 
-![GlobalWatch](https://img.shields.io/badge/Status-MVP-green)
-![Next.js](https://img.shields.io/badge/Next.js-15-blue)
-![Three.js](https://img.shields.io/badge/Three.js-0.160-purple)
+It combines public event feeds, article metadata, lightweight verification signals, and a 3D map interface so users can scan where important global events are being reported.
 
-## 🌍 Overview
+> Important: GlobalWatch is not an official alerting system and does not replace professional journalism, emergency services, or government guidance. It is an exploratory OSINT tool built from public data that may be incomplete, delayed, duplicated, or wrong.
 
-GlobalWatch provides automated situational awareness by displaying geopolitical events on an interactive 3D globe. Events from the last 7 days are shown as color-coded dots based on severity.
+## What It Does
 
-**Key Features:**
-- Full-screen interactive 3D globe with smooth rotation
-- Real-time event data from GDELT (updates every 15 minutes)
-- Color-coded severity: Yellow (low), Orange (medium), Red (high)
-- Click-to-navigate event pages with full details
-- SEO-optimized country and city hub pages
-- Ad-ready with placeholder slots
+- Shows global geopolitical events on a full-screen 3D globe.
+- Provides a Denmark-focused map view.
+- Falls back to cached event data when SQLite has no fresh rows.
+- Groups nearby events into map clusters.
+- Displays event status as Verified, Reported, or Unverified.
+- Provides event detail pages with sources, media context, map location, and metadata.
+- Includes country and city pages for browsing regional activity.
+- Supports a production Next.js build and Docker-based deployment.
 
-## 🚀 Quick Start
+## Screenshots
+
+Homepage globe:
+
+![GlobalWatch globe dashboard](docs/images/homepage.jpg)
+
+Denmark map with events:
+
+![GlobalWatch Denmark map](docs/images/denmark.jpg)
+
+Individual event page:
+
+![GlobalWatch event detail page](docs/images/event-detail.jpg)
+
+## Tech Stack
+
+- Next.js 16 and React 19
+- TypeScript
+- Three.js and OrbitControls for the globe
+- MapLibre via react-map-gl for the Denmark map
+- SQLite through better-sqlite3
+- GDELT, ACLED, RSS/news API ingestion scripts
+- LibreTranslate support for local translation workflows
+
+## How The App Works
+
+GlobalWatch has three main layers:
+
+1. Ingestion scripts collect raw public data from GDELT, RSS feeds, ACLED, and optional news APIs.
+2. Processing code filters, scores, enriches, geocodes, clusters, and stores events.
+3. The Next.js app serves normalized events to the globe, maps, sidebars, detail pages, and API routes.
+
+The homepage reads from `/api/events`. That endpoint first checks SQLite and falls back to `data/events.json` when the database is empty, which keeps the demo usable for new clones.
+
+More detail is in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+
+## Quick Start
+
+Requirements are listed in [REQUIREMENTS.md](REQUIREMENTS.md).
+
+Install dependencies:
 
 ```bash
-# Install dependencies
 npm install
+```
 
-# Run development server
+Create local environment variables:
+
+```bash
+cp .env.example .env
+```
+
+Run the development server:
+
+```bash
 npm run dev
+```
 
-# Build for production
+Open:
+
+```text
+http://localhost:3000
+```
+
+Build for production:
+
+```bash
 npm run build
-
-# Start production server
-npm start
+npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the globe.
+If you switch Node versions and see a `better-sqlite3` native module error, rebuild the native dependency:
 
-## 📁 Project Structure
-
-```
-src/
-├── app/
-│   ├── api/
-│   │   └── events/          # Event API endpoints
-│   ├── event/[slug]/        # Dynamic event pages
-│   ├── country/[country]/   # Country hub pages
-│   ├── city/[city]/         # City hub pages
-│   ├── layout.tsx           # Root layout with SEO
-│   ├── page.tsx             # Homepage with globe
-│   └── globals.css          # Global styles
-├── components/
-│   ├── Globe/Globe.tsx      # Three.js 3D globe
-│   ├── Footer.tsx           # Site footer
-│   └── AdSlot.tsx           # Ad placeholder
-└── lib/
-    ├── gdelt/
-    │   ├── types.ts         # TypeScript types & CAMEO codes
-    │   ├── fetcher.ts       # GDELT data fetching
-    │   ├── clusterer.ts     # Event clustering algorithm
-    │   └── store.ts         # In-memory event store
-    └── content/
-        └── generator.ts     # Event description templates
+```bash
+npm rebuild better-sqlite3
 ```
 
-## 📊 Data Flow
+## Environment Variables
 
-```
-GDELT masterfilelist.txt
-        │
-        ▼
-  Download CSVs (15-min exports)
-        │
-        ▼
-  Filter geopolitical events
-  (CAMEO codes: 14x, 17x, 18x, 19x, 20x)
-        │
-        ▼
-  Cluster by location (~25km radius)
-  and time window (3 hours)
-        │
-        ▼
-  Calculate severity score
-        │
-        ▼
-  Store in memory + disk cache
-        │
-        ▼
-  Serve via /api/events
-```
+Most features can run from cached public data. Some ingestion and enrichment scripts need API keys.
 
-## 🎨 Severity Scoring
-
-Events are scored based on:
-- **Event Type Weight**: Violence (10) → Protests (3)
-- **Cluster Size**: More incidents = higher severity
-- **Tone Score**: Negative tone increases severity
-
-| Score | Level   | Color  |
-|-------|---------|--------|
-| < 10  | Low     | Yellow |
-| 10-25 | Medium  | Orange |
-| > 25  | High    | Red    |
-
-## 🔧 Configuration
-
-### Environment Variables
+Copy `.env.example` to `.env` and fill in only the providers you plan to use:
 
 ```env
-# No required environment variables for MVP
-# Future: Add for production caching, analytics, etc.
+ACLED_EMAIL=
+ACLED_PASSWORD=
+NEWSDATA_API=
+CURRENTS_API=
+GNEWS_API=
+MEDIASTACK_API=
+WORLDNEWS_API=
+SEARXNG_URL=http://localhost:8888
 ```
 
-### GDELT Data Refresh
+Never commit `.env`, tokens, database files, or generated logs.
 
-Data is refreshed automatically when the API is called if cache is stale (>1 hour). For production, set up a cron job:
+## Useful Scripts
 
 ```bash
-# Refresh data every 15 minutes
-*/15 * * * * curl http://localhost:3000/api/events
+npm run dev      # Start local dev server
+npm run build    # Build production bundle
+npm run start    # Start production server
+npm run lint     # Run ESLint
 ```
 
-## 📈 SEO Features
+The `scripts/` directory contains ingestion, enrichment, migration, and debugging utilities. Some scripts require provider credentials or local data files.
 
-- **Unique Title & Meta**: Each event page has dynamic metadata
-- **JSON-LD Schema**: NewsArticle + Event schema for rich snippets
-- **Canonical URLs**: Proper canonical tags on all pages
-- **Country/City Hubs**: Indexable hub pages for long-tail SEO
+## Project Structure
 
-## 💰 Monetization
+```text
+src/
+  app/
+    api/events/          Event API routes
+    event/[slug]/        Event detail pages
+    country/[country]/   Country hub pages
+    city/[city]/         City hub pages
+    page.tsx             Main globe dashboard
+  components/
+    Globe/               Three.js globe
+    DenmarkMap/          Denmark-focused map
+    Sidebar/             Event list and status summary
+  lib/
+    db/                  SQLite setup and event normalization
+    gdelt/               GDELT fetching, clustering, and cache store
+    geo/                 Geocoding and location helpers
+    ingestion/           Event generation and enrichment
+    news/                News provider clients and verification helpers
+    verify/              Filtering and country-code helpers
+data/
+  events.json            Cached demo/source event store
+  docs/                  Provider notes and verification model docs
+scripts/                 Operational ingestion and maintenance scripts
+```
 
-Ad slots are pre-configured on:
-- Event pages (inline + sidebar)
-- Country hub pages (inline)
-- City hub pages (inline)
+## Data Sources
 
-**No ads on the homepage globe.**
+GlobalWatch can use:
 
-Replace placeholder with AdSense code in `src/components/AdSlot.tsx`.
+- GDELT Project
+- ACLED
+- RSS feeds
+- NewsData.io
+- GNews
+- Mediastack
+- WorldNewsAPI
+- Currents API
+- SearXNG for self-hosted search workflows
 
-## ⚠️ Disclaimer
+Each source has different licensing, quota, attribution, and reliability characteristics. Check provider terms before deploying a public instance.
 
-This platform provides automated situational awareness based on publicly available data from the GDELT Project. It does not constitute news reporting, analysis, or official information.
+## Responsible Use
 
-## 📄 License
+GlobalWatch is designed to make public signals easier to inspect, not to declare ground truth.
 
-MIT License - See LICENSE file for details.
+Please:
 
-## 🙏 Credits
+- Treat generated event clusters as leads, not final conclusions.
+- Click through to source material before sharing claims.
+- Expect duplicated, noisy, or incorrectly geocoded data.
+- Add provider attribution when required by source terms.
+- Avoid using this app for emergency decision-making without human verification.
 
-- **Data**: [GDELT Project](https://www.gdeltproject.org/)
-- **3D Globe**: [Three.js](https://threejs.org/)
-- **Framework**: [Next.js](https://nextjs.org/)
+## Deployment
+
+There is a Dockerfile for container deployment:
+
+```bash
+docker build -t globalwatch .
+docker run -p 3000:3000 --env-file .env globalwatch
+```
+
+The production start script launches LibreTranslate, the cron worker, and the Next.js server. Review `start.sh` before deploying to make sure those services match your infrastructure.
+
+## Contributing
+
+Contributions are welcome. Good first areas:
+
+- Improve event deduplication and clustering.
+- Add stronger source attribution UI.
+- Improve accessibility and mobile layout.
+- Add provider-specific test fixtures.
+- Reduce false positives in geocoding and verification.
+- Add screenshots and deployment recipes.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Security
+
+Do not publish credentials, tokens, generated databases, or logs. See [SECURITY.md](SECURITY.md).
+
+If this repository has ever contained real credentials, rotate those credentials before making the repository public.
+
+## License
+
+GlobalWatch is available under the MIT License. See [LICENSE](LICENSE).

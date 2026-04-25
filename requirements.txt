@@ -1,0 +1,2 @@
+# Optional Python dependency used by start.sh/Docker for local translation.
+libretranslate

@@ -1,7 +1,13 @@
 {
   "name": "globalwatch",
   "version": "0.1.0",
+  "description": "Open-source geopolitical situational awareness dashboard with a 3D globe and public-source event monitoring.",
   "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

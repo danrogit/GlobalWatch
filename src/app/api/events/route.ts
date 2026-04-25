@@ -9,7 +9,7 @@ export async function GET(request: Request) {
         // Get all events from SQLite
         const events = getAllGeoEvents(days);
 
-        console.log(`[API] Serving ${events.length} geo events from SQLite`);
+        console.log(`[API] Serving ${events.length} geo events`);
 
         return NextResponse.json({
             events: events,

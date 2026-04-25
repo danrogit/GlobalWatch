@@ -21,8 +21,11 @@ COPY package*.json ./
 # Install Node.js dependencies (including dev dependencies for build)
 RUN npm ci
 
+# Copy optional Python requirements separately for Docker layer caching
+COPY requirements.txt ./
+
 # Install LibreTranslate (using --break-system-packages for Docker environment)
-RUN pip3 install --break-system-packages libretranslate
+RUN pip3 install --break-system-packages -r requirements.txt
 
 # Copy application code
 COPY . .

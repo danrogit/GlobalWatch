@@ -97,7 +97,7 @@ export function clusterEvents(
                 lon: avgLon,
                 eventCount: cellEvents.length,
                 events: cellEvents,
-                title: `${cellEvents.length} hændelser`,
+                title: `${cellEvents.length} events`,
                 slug: sorted[0].slug, // Link to newest event
                 dotColor: dominantColor,
                 isCluster: true

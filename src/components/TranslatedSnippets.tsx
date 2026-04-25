@@ -6,7 +6,7 @@ interface TranslatedSnippet {
     url: string;
     domain: string;
     original: string;
-    danish: string;
+    text: string;
     success: boolean;
     isRelevant: boolean;
 }
@@ -55,7 +55,7 @@ export default function TranslatedSnippets({ urls, eventType, country }: Props) 
                 setSnippets(data.snippets || []);
             } catch (err) {
                 console.error('Error fetching snippets:', err);
-                setError('Kunne ikke hente artikeluddrag');
+                setError('Could not fetch article excerpts');
             } finally {
                 setLoading(false);
             }
@@ -67,8 +67,8 @@ export default function TranslatedSnippets({ urls, eventType, country }: Props) 
     if (loading) {
         return (
             <div style={{ padding: '20px', textAlign: 'center', opacity: 0.7 }}>
-                <div style={{ marginBottom: '8px' }}>⏳ Henter og verificerer artikler...</div>
-                <div style={{ fontSize: '12px' }}>Filtrerer relevante kilder for {country}</div>
+                <div style={{ marginBottom: '8px' }}>Fetching and checking articles...</div>
+                <div style={{ fontSize: '12px' }}>Filtering relevant sources for {country}</div>
             </div>
         );
     }
@@ -82,9 +82,9 @@ export default function TranslatedSnippets({ urls, eventType, country }: Props) 
                 textAlign: 'center',
                 opacity: 0.7
             }}>
-                <div>📰 Ingen verificerede artikler fundet for {country}</div>
+                <div>No verified articles found for {country}</div>
                 <div style={{ fontSize: '12px', marginTop: '4px' }}>
-                    Kilder er tilgængelige nedenfor
+                    Sources are available below
                 </div>
             </div>
         );
@@ -112,7 +112,7 @@ export default function TranslatedSnippets({ urls, eventType, country }: Props) 
                             padding: '2px 6px',
                             borderRadius: '3px'
                         }}>
-                            verificeret ✓
+                            verified
                         </span>
                     </div>
                     <p style={{
@@ -122,7 +122,7 @@ export default function TranslatedSnippets({ urls, eventType, country }: Props) 
                         lineHeight: 1.6,
                         color: 'rgba(255,255,255,0.9)'
                     }}>
-                        "{snippet.danish}"
+                        "{snippet.text || snippet.original}"
                     </p>
                     <a
                         href={snippet.url}
@@ -135,7 +135,7 @@ export default function TranslatedSnippets({ urls, eventType, country }: Props) 
                             opacity: 0.8
                         }}
                     >
-                        → Læs original artikel
+                        Read original article
                     </a>
                 </li>
             ))}

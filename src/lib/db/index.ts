@@ -13,6 +13,8 @@ if (!fs.existsSync(dataDir)) {
 export const db = new Database(DB_PATH);
 // db.pragma('journal_mode = WAL'); // Better concurrency
 
+let isInitialized = false;
+
 export interface RssArticleRow {
     id: string;
     title: string;
@@ -55,6 +57,10 @@ export interface FeedRow {
 }
 
 export function initDatabase() {
+    if (isInitialized) {
+        return;
+    }
+
     console.log('[DB] Initializing database at', DB_PATH);
 
     // 1️⃣ Feeds Table
@@ -134,9 +140,12 @@ export function initDatabase() {
     // Add column if missing (migration support)
     try {
         db.exec('ALTER TABLE geo_events ADD COLUMN normalized_title TEXT');
-    } catch (e) {
+    } catch {
         // Column already exists
     }
 
+    isInitialized = true;
     console.log('[DB] Schema initialized.');
 }
+
+initDatabase();

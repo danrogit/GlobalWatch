@@ -17,11 +17,10 @@ interface PageProps {
     params: Promise<{ slug: string }>;
 }
 
-// Danish date formatting
-function formatDanishDate(isoString: string): string {
+function formatDate(isoString: string): string {
     const date = new Date(isoString);
     if (isNaN(date.getTime())) return isoString;
-    return date.toLocaleDateString('da-DK', {
+    return date.toLocaleDateString('en-US', {
         weekday: 'long',
         year: 'numeric',
         month: 'long',
@@ -32,9 +31,9 @@ function formatDanishDate(isoString: string): string {
 // Map color to label and visual styling
 const LAYER_MAPPING = {
     blue: { emoji: '🔵', label: 'Protest', color: '#3b82f6' },
-    orange: { emoji: '🟠', label: 'Rapport / Signal', color: '#f59e0b' },
-    red: { emoji: '🔴', label: 'Vold / Konflikt', color: '#ef4444' },
-    green: { emoji: '✅', label: 'Bekræftet', color: '#10b981' },
+    orange: { emoji: '🟠', label: 'Report / Signal', color: '#f59e0b' },
+    red: { emoji: '🔴', label: 'Violence / Conflict', color: '#ef4444' },
+    green: { emoji: '✅', label: 'Verified', color: '#10b981' },
 };
 
 // Generate metadata for SEO - Country only
@@ -44,13 +43,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     if (!event) {
         return {
-            title: 'Begivenhed ikke fundet | GlobalWatch',
+            title: 'Event not found | GlobalWatch',
         };
     }
 
-    const title = `${event.danishTitle} | GlobalWatch`;
-    const description = `${event.danishTitle} rapporteret i ${event.country}. ` +
-        `Registreret ${formatDanishDate(event.timestamp)}.`;
+    const title = `${event.title} | GlobalWatch`;
+    const description = `${event.title} reported in ${event.country}. ` +
+        `Recorded ${formatDate(event.timestamp)}.`;
 
     return {
         title,
@@ -63,7 +62,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             modifiedTime: event.addedAt,
             section: event.danishCategory,
             tags: [event.danishCategory, event.country],
-            locale: 'da_DK',
+            locale: 'en_US',
         },
         twitter: {
             card: 'summary',
@@ -102,11 +101,11 @@ export default async function EventPage({ params }: PageProps) {
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'NewsArticle',
-        headline: event.danishTitle,
-        description: event.notes || event.danishTitle,
+        headline: event.title,
+        description: event.notes || event.title,
         datePublished: event.timestamp,
         dateModified: event.addedAt,
-        inLanguage: 'da',
+        inLanguage: 'en',
         author: {
             '@type': 'Organization',
             name: 'GlobalWatch',
@@ -117,7 +116,7 @@ export default async function EventPage({ params }: PageProps) {
         },
         about: {
             '@type': 'Event',
-            name: event.danishTitle,
+            name: event.title,
             startDate: event.timestamp,
             location: {
                 '@type': 'Place',
@@ -141,7 +140,7 @@ export default async function EventPage({ params }: PageProps) {
             <header className="event-header" style={{ borderLeft: `6px solid ${layerInfo.color}`, paddingLeft: '20px' }}>
                 <div className="container">
                     <nav className="event-nav">
-                        <Link href="/">Hjem</Link>
+                        <Link href="/">Home</Link>
                         <span className="event-nav-separator">/</span>
                         <Link href={`/country/${encodeURIComponent(countryName.toLowerCase().replace(/\s+/g, '-'))}`}>
                             {countryName}
@@ -149,7 +148,7 @@ export default async function EventPage({ params }: PageProps) {
                     </nav>
 
                     <div className="event-title-wrapper">
-                        <h1 className="event-title">{event.danishTitle}</h1>
+                        <h1 className="event-title">{event.title}</h1>
                         <span
                             className="confidence-badge"
                             style={{
@@ -168,8 +167,8 @@ export default async function EventPage({ params }: PageProps) {
                                 gap: '6px'
                             }}
                         >
-                            {event.status === 'VERIFIED' ? '✅ Bekræftet' :
-                                event.status === 'REPORTED' ? '⚠️ Rapporteret' :
+                            {event.status === 'VERIFIED' ? '✅ Verified' :
+                                event.status === 'REPORTED' ? '⚠️ Reported' :
                                     `${layerInfo.emoji} ${layerInfo.label}`}
                         </span>
                     </div>
@@ -177,7 +176,7 @@ export default async function EventPage({ params }: PageProps) {
                     <div className="event-meta">
                         <div className="event-meta-item">
                             <span className="event-meta-icon">🕐</span>
-                            <span>Opdateret {getRelativeTime(event.addedAt)}</span>
+                            <span>Updated {getRelativeTime(event.addedAt)}</span>
                         </div>
                         <div className="event-meta-item">
                             <span className="event-meta-icon">📍</span>
@@ -185,7 +184,7 @@ export default async function EventPage({ params }: PageProps) {
                         </div>
                         <div className="event-meta-item">
                             <span className="event-meta-icon">🛡️</span>
-                            <span>{event.layer === 'incident' ? 'Verificeret hændelse' : 'Politisk signal'}</span>
+                            <span>{event.layer === 'incident' ? 'Verified event' : 'Political signal'}</span>
                         </div>
                     </div>
                 </div>
@@ -195,7 +194,7 @@ export default async function EventPage({ params }: PageProps) {
                 <div className="container">
                     <div className="event-grid">
                         <div className="event-main">
-                            {/* Kort Fakta */}
+                            {/* Quick facts */}
                             <section className="event-section" style={{
                                 backgroundColor: 'rgba(59, 130, 246, 0.1)',
                                 border: '1px solid rgba(59, 130, 246, 0.3)',
@@ -203,19 +202,19 @@ export default async function EventPage({ params }: PageProps) {
                                 padding: '16px',
                                 marginBottom: '24px'
                             }}>
-                                <h2 className="event-section-title" style={{ marginBottom: '12px' }}>📋 Kort fakta</h2>
+                                <h2 className="event-section-title" style={{ marginBottom: '12px' }}>📋 Quick facts</h2>
                                 <div style={{ display: 'grid', gridTemplateColumns: '120px 1fr', gap: '8px', fontSize: '14px' }}>
-                                    <span style={{ opacity: 0.7 }}>Land:</span>
+                                    <span style={{ opacity: 0.7 }}>Country:</span>
                                     <span>{countryName}</span>
-                                    <span style={{ opacity: 0.7 }}>Dato:</span>
-                                    <span>{formatDanishDate(event.timestamp)}</span>
+                                    <span style={{ opacity: 0.7 }}>Date:</span>
+                                    <span>{formatDate(event.timestamp)}</span>
                                     <span style={{ opacity: 0.7 }}>Type:</span>
                                     <span>{event.danishCategory}</span>
-                                    <span style={{ opacity: 0.7 }}>Kilde:</span>
+                                    <span style={{ opacity: 0.7 }}>Source:</span>
                                     <span>{event.source}</span>
                                     {event.fatalities !== undefined && (
                                         <>
-                                            <span style={{ opacity: 0.7 }}>Tabstal:</span>
+                                            <span style={{ opacity: 0.7 }}>Fatalities:</span>
                                             <span>{event.fatalities}</span>
                                         </>
                                     )}
@@ -228,14 +227,14 @@ export default async function EventPage({ params }: PageProps) {
                             {event.imageUrl && (
                                 <EventImage
                                     src={event.imageUrl}
-                                    alt={event.danishTitle}
+                                    alt={event.title}
                                 />
                             )}
 
                             {/* Detaljeret beskrivelse */}
                             {event.notes && (
                                 <section className="event-section">
-                                    <h2 className="event-section-title">📝 Beskrivelse</h2>
+                                    <h2 className="event-section-title">📝 Description</h2>
                                     <div className="event-notes" style={{
                                         padding: '16px',
                                         lineHeight: '1.6',
@@ -251,7 +250,7 @@ export default async function EventPage({ params }: PageProps) {
                             {/* Quotes Section */}
                             {event.quotes && event.quotes.length > 0 && (
                                 <section className="event-section">
-                                    <h2 className="event-section-title">💬 Citater</h2>
+                                    <h2 className="event-section-title">💬 Quotes</h2>
                                     <div className="quotes-grid" style={{ display: 'grid', gap: '16px' }}>
                                         {event.quotes.map((quote: any, idx: number) => (
                                             <blockquote key={idx} style={{
@@ -283,7 +282,7 @@ export default async function EventPage({ params }: PageProps) {
 
                             {/* Hvad medierne rapporterer - for signals, or if we have URLs */}
                             <section className="event-section">
-                                <h2 className="event-section-title">📰 Medie-kontekst</h2>
+                                <h2 className="event-section-title">📰 Media context</h2>
                                 <TranslatedSnippets
                                     urls={event.sourceUrl ? [event.sourceUrl] : []}
                                     eventType={event.category}
@@ -291,10 +290,10 @@ export default async function EventPage({ params }: PageProps) {
                                 />
                             </section>
 
-                            {/* Verificerede Kilder (New System) */}
+                            {/* Verified Sources */}
                             {event.articles && event.articles.length > 0 ? (
                                 <section className="event-section">
-                                    <h2 className="event-section-title">📰 Verificerede Kilder ({event.articles.length})</h2>
+                                    <h2 className="event-section-title">📰 Verified Sources ({event.articles.length})</h2>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                                         {event.articles.map((article: any, idx: number) => (
                                             <a
@@ -318,7 +317,7 @@ export default async function EventPage({ params }: PageProps) {
                                                 </div>
                                                 <div style={{ fontSize: '11px', color: '#a0a0b8', display: 'flex', justifyContent: 'space-between' }}>
                                                     <span style={{ fontWeight: 500, color: '#4f8fff' }}>{article.publisher}</span>
-                                                    <span>{new Date(article.publishedAt).toLocaleDateString('da-DK')}</span>
+                                                    <span>{new Date(article.publishedAt).toLocaleDateString('en-US')}</span>
                                                 </div>
                                             </a>
                                         ))}
@@ -327,7 +326,7 @@ export default async function EventPage({ params }: PageProps) {
                             ) : (
                                 /* Legacy Single Source Logic */
                                 <section className="event-section">
-                                    <h2 className="event-section-title">🔗 Kilde</h2>
+                                    <h2 className="event-section-title">🔗 Source</h2>
                                     {event.sourceUrl ? (
                                         <a
                                             href={event.sourceUrl}
@@ -343,11 +342,11 @@ export default async function EventPage({ params }: PageProps) {
                                                 display: 'inline-block'
                                             }}
                                         >
-                                            Besøg kilde: {extractDomain(event.sourceUrl)}
+                                            Visit source: {extractDomain(event.sourceUrl)}
                                         </a>
                                     ) : (
                                         <p style={{ fontSize: '13px', opacity: 0.6 }}>
-                                            Kilde: {event.source}
+                                            Source: {event.source}
                                         </p>
                                     )}
                                 </section>
@@ -356,7 +355,7 @@ export default async function EventPage({ params }: PageProps) {
                             {/* GDELT Source URLs (All detected sources) */}
                             {event.gdeltSourceUrls && event.gdeltSourceUrls.length > 0 && (
                                 <section className="event-section">
-                                    <h2 className="event-section-title">🌐 GDELT Kilder ({event.gdeltSourceUrls.length})</h2>
+                                    <h2 className="event-section-title">🌐 GDELT Sources ({event.gdeltSourceUrls.length})</h2>
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', maxHeight: '300px', overflowY: 'auto' }}>
                                         {event.gdeltSourceUrls.map((url: string, idx: number) => (
                                             <a
@@ -379,7 +378,7 @@ export default async function EventPage({ params }: PageProps) {
                                                 }}
                                             >
                                                 <span style={{ color: '#60a5fa', fontWeight: 500 }}>{extractDomain(url)}</span>
-                                                <span style={{ marginLeft: '8px', opacity: 0.6 }}>→ Læs artikel</span>
+                                                <span style={{ marginLeft: '8px', opacity: 0.6 }}>Read article</span>
                                             </a>
                                         ))}
                                     </div>
@@ -389,7 +388,7 @@ export default async function EventPage({ params }: PageProps) {
 
                         <aside className="event-sidebar">
                             <div className="sidebar-card">
-                                <h3 className="sidebar-card-title">Lokation</h3>
+                                <h3 className="sidebar-card-title">Location</h3>
                                 <div style={{
                                     width: '100%',
                                     borderRadius: '8px',
@@ -400,7 +399,7 @@ export default async function EventPage({ params }: PageProps) {
                                 </div>
                                 <div className="location-info" style={{ marginTop: '12px' }}>
                                     <div className="location-row">
-                                        <span className="location-label">Land</span>
+                                        <span className="location-label">Country</span>
                                         <span className="location-value">
                                             <Link href={`/country/${encodeURIComponent(event.country.toLowerCase().replace(/\s+/g, '-'))}`}>
                                                 {event.country}
@@ -408,8 +407,8 @@ export default async function EventPage({ params }: PageProps) {
                                         </span>
                                     </div>
                                     <div className="location-row">
-                                        <span className="location-label">Hændelsesdato</span>
-                                        <span className="location-value">{formatDanishDate(event.timestamp)}</span>
+                                        <span className="location-label">Event date</span>
+                                        <span className="location-value">{formatDate(event.timestamp)}</span>
                                     </div>
                                 </div>
                             </div>
@@ -419,25 +418,25 @@ export default async function EventPage({ params }: PageProps) {
                                 fontSize: '12px',
                                 opacity: 0.8
                             }}>
-                                <h3 className="sidebar-card-title">📊 Verificeret Data</h3>
+                                <h3 className="sidebar-card-title">📊 Verified Data</h3>
                                 <p style={{ margin: '8px 0' }}>
-                                    Denne information er indhentet gennem:
+                                    This information was gathered through:
                                 </p>
                                 <ul style={{ margin: 0, paddingLeft: '16px' }}>
                                     {event.layer === 'incident' ? (
                                         <>
                                             <li>ACLED (Confirmed Conflict Data)</li>
-                                            <li>Lokale og internationale observatører</li>
+                                            <li>Local and international observers</li>
                                         </>
                                     ) : (
                                         <>
-                                            <li>Officielle udmeldinger</li>
-                                            <li>Verificerede nyhedsmedier</li>
+                                            <li>Official statements</li>
+                                            <li>Verified news media</li>
                                         </>
                                     )}
                                 </ul>
                                 <p style={{ margin: '8px 0 0 0', fontSize: '11px' }}>
-                                    Sidst opdateret: {formatDanishDate(event.addedAt)}
+                                    Last updated: {formatDate(event.addedAt)}
                                 </p>
                             </div>
                         </aside>

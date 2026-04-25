@@ -232,11 +232,11 @@ export default function DenmarkMap({ events }: Props) {
                     >
                         <div style={{ maxWidth: '200px', padding: '4px' }}>
                             <h4 style={{ margin: 0, fontSize: '13px', fontWeight: 600 }}>
-                                {selectedEvent.danishTitle || selectedEvent.title}
+                                {selectedEvent.title || selectedEvent.danishTitle}
                             </h4>
                             <p style={{ margin: '4px 0', fontSize: '11px', opacity: 0.7 }}>
-                                {selectedEvent.danishCategory} • {selectedEvent.status === 'VERIFIED' ? 'Bekræftet' :
-                                    selectedEvent.status === 'REPORTED' ? 'Rapporteret' : 'Ubekræftet'}
+                                {selectedEvent.danishCategory} - {selectedEvent.status === 'VERIFIED' ? 'Verified' :
+                                    selectedEvent.status === 'REPORTED' ? 'Reported' : 'Unverified'}
                             </p>
                             <a
                                 href={`/event/${selectedEvent.slug}`}
@@ -248,7 +248,7 @@ export default function DenmarkMap({ events }: Props) {
                                     textDecoration: 'none',
                                 }}
                             >
-                                Læs mere →
+                                Read more
                             </a>
                         </div>
                     </Popup>
@@ -257,8 +257,8 @@ export default function DenmarkMap({ events }: Props) {
 
             {/* Event count overlay */}
             <div className="denmark-count-overlay">
-                <span style={{ color: '#94a3b8', fontWeight: 400 }}>Danmark:</span>{' '}
-                {denmarkEvents.length} hændelser
+                <span style={{ color: '#94a3b8', fontWeight: 400 }}>Denmark:</span>{' '}
+                {denmarkEvents.length} events
             </div>
         </div>
     );

@@ -9,7 +9,7 @@ const Globe = dynamic(() => import('@/components/Globe/Globe'), {
   loading: () => (
     <div className="loading-overlay">
       <div className="loading-spinner"></div>
-      <p className="loading-text">Initialiserer situationsoverblik...</p>
+      <p className="loading-text">Initializing situation overview...</p>
     </div>
   ),
 });
@@ -20,7 +20,7 @@ const DenmarkMap = dynamic(() => import('@/components/DenmarkMap/DenmarkMap'), {
   loading: () => (
     <div className="loading-overlay">
       <div className="loading-spinner"></div>
-      <p className="loading-text">Indlæser kort over Danmark...</p>
+      <p className="loading-text">Loading Denmark map...</p>
     </div>
   ),
 });
@@ -49,7 +49,7 @@ export default function HomePage() {
         setEvents(data.events || []);
       } catch (err) {
         console.error('Error fetching events:', err);
-        setError('Kunne ikke indlæse data');
+        setError('Could not load events');
       } finally {
         setLoading(false);
       }
@@ -146,14 +146,15 @@ export default function HomePage() {
                 textTransform: 'uppercase',
               }}
             >
-              Danmark
+              Denmark
             </button>
           </div>
 
           {/* Pause/Play Button - Liquid Glass Style (Only visible in Global Mode) */}
           {viewMode === 'global' && (
             <button
-              onClick={() => setIsPaused(!isPaused)}
+              type="button"
+              onClick={() => setIsPaused((paused) => !paused)}
               className="liquid-glass-toggle"
               style={{
                 padding: '0',
@@ -170,14 +171,15 @@ export default function HomePage() {
                 color: 'white',
                 transition: 'all 0.2s ease',
               }}
+              aria-label={isPaused ? 'Start rotation' : 'Pause rotation'}
               title={isPaused ? 'Start rotation' : 'Pause rotation'}
             >
               {isPaused ? (
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M8 5v14l11-7z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
                 </svg>
               ) : (
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <rect x="6" y="4" width="4" height="16" stroke="currentColor" strokeWidth="2" />
                   <rect x="14" y="4" width="4" height="16" stroke="currentColor" strokeWidth="2" />
                 </svg>
@@ -190,7 +192,7 @@ export default function HomePage() {
       {loading ? (
         <div className="loading-overlay">
           <div className="loading-spinner"></div>
-          <p className="loading-text">Indlæser hændelser...</p>
+          <p className="loading-text">Loading events...</p>
         </div>
       ) : error ? (
         <div className="loading-overlay">
@@ -215,50 +217,28 @@ export default function HomePage() {
             <div className="event-counter-dot"></div>
             <span className="event-counter-text">
               <span className="event-counter-number">{events.length}</span>
-              {viewMode === 'denmark' ? ' hændelser i Danmark' : ' aktive hændelser'}
+              {viewMode === 'denmark' ? ' events in Denmark' : ' active events'}
             </span>
           </div>
 
-          {/* Legend - Danish */}
+          {/* Legend */}
           <div className="legend">
-            <div className="legend-title">Alvorlighedsgrad</div>
+            <div className="legend-title">Severity</div>
             <div className="legend-items">
               <div className="legend-item">
                 <span className="legend-dot legend-dot--low"></span>
-                Lav ({severityCounts.low})
+                Low ({severityCounts.low})
               </div>
               <div className="legend-item">
                 <span className="legend-dot legend-dot--medium"></span>
-                Mellem ({severityCounts.medium})
+                Medium ({severityCounts.medium})
               </div>
               <div className="legend-item">
                 <span className="legend-dot legend-dot--high"></span>
-                Høj ({severityCounts.high})
+                High ({severityCounts.high})
               </div>
             </div>
           </div>
-
-          {/* Om platformen - Bottom Left */}
-          <a
-            href="/om-platformen"
-            className="about-link"
-            style={{
-              position: 'fixed',
-              bottom: '20px',
-              left: '20px',
-              fontSize: '13px',
-              color: 'rgba(255,255,255,0.6)',
-              textDecoration: 'none',
-              padding: '8px 12px',
-              backgroundColor: 'rgba(0,0,0,0.3)',
-              borderRadius: '6px',
-              backdropFilter: 'blur(8px)',
-              transition: 'all 0.2s ease',
-              zIndex: 50,
-            }}
-          >
-            Om platformen
-          </a>
         </>
       )}
     </main>

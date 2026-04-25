@@ -45,6 +45,9 @@ export interface UnifiedEvent {
     source: string;
     sourceUrl?: string;
     notes?: string;
+    description?: string;
+    imageUrl?: string;
+    quotes?: Array<{ text: string; speaker?: string }>;
 
     // Visuals
     dotColor: 'blue' | 'orange' | 'red' | 'green';

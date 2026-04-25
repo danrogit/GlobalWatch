@@ -20,7 +20,7 @@ export default function Footer() {
                     </div>
 
                     <div className="footer-copy">
-                        © {new Date().getFullYear()} GlobalWatch. Data sourced from GDELT Project.
+                        Copyright {new Date().getFullYear()} GlobalWatch. Data sourced from GDELT Project.
                     </div>
                 </div>
             </div>

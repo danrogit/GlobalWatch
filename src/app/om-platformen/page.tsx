@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Link from 'next/link';
 
@@ -13,8 +12,6 @@ export default function AboutPage() {
             paddingBottom: '60px'
         }}>
             <div className="container" style={{ maxWidth: '800px', margin: '0 auto', padding: '0 24px' }}>
-
-                {/* Header */}
                 <header style={{ marginBottom: '60px', textAlign: 'center' }}>
                     <h1 style={{
                         fontSize: '42px',
@@ -24,33 +21,27 @@ export default function AboutPage() {
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent'
                     }}>
-                        Om GlobalWatch
+                        About GlobalWatch
                     </h1>
                     <p style={{ fontSize: '18px', color: '#a0a0b8', lineHeight: '1.6' }}>
-                        Et avanceret open-source efterretningsværktøj (OSINT) til overvågning af <br />
-                        geopolitiske spændinger og konflikter i realtid.
+                        An open-source intelligence tool for monitoring geopolitical tensions and conflicts in near real time.
                     </p>
                 </header>
 
-                {/* Main Content */}
                 <main style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
-
-                    {/* Mission */}
                     <section>
                         <h2 style={{ fontSize: '24px', fontWeight: '700', marginBottom: '16px', color: '#fff' }}>
-                            🌍 Vores Mission
+                            Mission
                         </h2>
                         <p style={{ color: '#a0a0b8', lineHeight: '1.7', fontSize: '16px' }}>
-                            GlobalWatch har til formål at demokratisere adgangen til geopolitisk risikovurdering.
-                            I en tid med fake news og informationskrig, leverer vi et objektivt, data-drevet billede
-                            af verdens konflikter ved at kombinere avancerede algoritmer med streng kildekritik.
+                            GlobalWatch helps make geopolitical risk monitoring more accessible by combining public data,
+                            automated event detection, and source checks into a live situational overview.
                         </p>
                     </section>
 
-                    {/* How It Works */}
                     <section>
                         <h2 style={{ fontSize: '24px', fontWeight: '700', marginBottom: '24px', color: '#fff' }}>
-                            ⚙️ Sådan fungerer teknologien
+                            How The Technology Works
                         </h2>
 
                         <div style={{
@@ -62,42 +53,40 @@ export default function AboutPage() {
                             border: '1px solid rgba(255,255,255,0.05)'
                         }}>
                             <div style={{ display: 'flex', gap: '16px' }}>
-                                <span style={{ fontSize: '24px' }}>📡</span>
+                                <span style={{ fontSize: '24px' }}>1.</span>
                                 <div>
-                                    <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '8px', color: '#fff' }}>1. Signal Detektion</h3>
+                                    <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '8px', color: '#fff' }}>Signal Detection</h3>
                                     <p style={{ color: '#a0a0b8', fontSize: '14px', lineHeight: '1.6' }}>
-                                        Platformen scanner konstant millioner af datapunkter fra <strong>GDELT Project</strong> (Global Database of Events, Language, and Tone) for at identificere potentielle hændelser.
+                                        The platform scans public event signals from the GDELT Project to identify potential geopolitical events.
                                     </p>
                                 </div>
                             </div>
 
                             <div style={{ display: 'flex', gap: '16px' }}>
-                                <span style={{ fontSize: '24px' }}>🔍</span>
+                                <span style={{ fontSize: '24px' }}>2.</span>
                                 <div>
-                                    <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '8px', color: '#fff' }}>2. Multi-Source Verificering</h3>
+                                    <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '8px', color: '#fff' }}>Multi-Source Verification</h3>
                                     <p style={{ color: '#a0a0b8', fontSize: '14px', lineHeight: '1.6' }}>
-                                        Når et signal opfanges, krydsrefererer vores motor det øjeblikkeligt med globale nyhedsbureauer (Reuters, AP, BBC) via 5 uafhængige API'er.
-                                        Kun hændelser bekræftet af mindst <strong>2 uafhængige kilder</strong> får status som "Verificeret".
+                                        Detected signals can be cross-checked against global news sources and supporting data before being displayed.
                                     </p>
                                 </div>
                             </div>
 
                             <div style={{ display: 'flex', gap: '16px' }}>
-                                <span style={{ fontSize: '24px' }}>🛡️</span>
+                                <span style={{ fontSize: '24px' }}>3.</span>
                                 <div>
-                                    <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '8px', color: '#fff' }}>3. Objektiv Klassificering</h3>
+                                    <h3 style={{ fontSize: '18px', fontWeight: '600', marginBottom: '8px', color: '#fff' }}>Objective Classification</h3>
                                     <p style={{ color: '#a0a0b8', fontSize: '14px', lineHeight: '1.6' }}>
-                                        Hændelser inddeles automatisk i kategorier som "Konflikt", "Diplomati" eller "Sanktioner" uden politisk bias, baseret på faktiske hændelseskoder.
+                                        Events are grouped into categories such as conflict, diplomacy, sanctions, and protests using event metadata.
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </section>
 
-                    {/* Data Sources */}
                     <section>
                         <h2 style={{ fontSize: '24px', fontWeight: '700', marginBottom: '16px', color: '#fff' }}>
-                            📊 Datakilder
+                            Data Sources
                         </h2>
                         <ul style={{
                             display: 'grid',
@@ -127,10 +116,8 @@ export default function AboutPage() {
                             ))}
                         </ul>
                     </section>
-
                 </main>
 
-                {/* Footer */}
                 <footer style={{ marginTop: '80px', paddingTop: '40px', borderTop: '1px solid rgba(255,255,255,0.1)', textAlign: 'center' }}>
                     <Link href="/" style={{
                         display: 'inline-block',
@@ -142,13 +129,12 @@ export default function AboutPage() {
                         textDecoration: 'none',
                         fontSize: '14px'
                     }}>
-                        Tilbage til Kortet
+                        Back to Map
                     </Link>
                     <p style={{ marginTop: '24px', fontSize: '12px', color: '#6a6a88' }}>
-                        © {new Date().getFullYear()} GlobalWatch. Alle rettigheder forbeholdes.
+                        Copyright {new Date().getFullYear()} GlobalWatch. All rights reserved.
                     </p>
                 </footer>
-
             </div>
         </div>
     );

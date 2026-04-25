@@ -17,7 +17,7 @@ interface NewsEvent {
     description?: string;
 }
 
-export default function NyhederPage() {
+export default function NewsPage() {
     const [events, setEvents] = useState<NewsEvent[]>([]);
     const [loading, setLoading] = useState(true);
     const [filter, setFilter] = useState<'all' | 'verified' | 'reported'>('all');
@@ -51,7 +51,7 @@ export default function NyhederPage() {
         return (
             <div className="nyheder-loading">
                 <div className="spinner"></div>
-                <p>Indlæser nyheder...</p>
+                <p>Loading news...</p>
             </div>
         );
     }
@@ -66,8 +66,8 @@ export default function NyhederPage() {
                         <span className="logo-text">GlobalWatch</span>
                     </Link>
                     <nav className="nav-links">
-                        <Link href="/">Kort</Link>
-                        <Link href="/nyheder" className="active">Nyheder</Link>
+                        <Link href="/">Map</Link>
+                        <Link href="/nyheder" className="active">News</Link>
                     </nav>
                 </div>
             </header>
@@ -75,8 +75,8 @@ export default function NyhederPage() {
             {/* Main Content */}
             <main className="nyheder-main">
                 <div className="page-title-section">
-                    <h1>Seneste Nyheder</h1>
-                    <p className="subtitle">{sortedEvents.length} hændelser fra hele verden</p>
+                    <h1>Latest News</h1>
+                    <p className="subtitle">{sortedEvents.length} events from around the world</p>
                 </div>
 
                 {/* Filters */}
@@ -85,21 +85,21 @@ export default function NyhederPage() {
                         className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
                         onClick={() => setFilter('all')}
                     >
-                        Alle ({events.length})
+                        All ({events.length})
                     </button>
                     <button
                         className={`filter-btn ${filter === 'verified' ? 'active' : ''}`}
                         onClick={() => setFilter('verified')}
                     >
                         <span className="dot green"></span>
-                        Bekræftet
+                        Verified
                     </button>
                     <button
                         className={`filter-btn ${filter === 'reported' ? 'active' : ''}`}
                         onClick={() => setFilter('reported')}
                     >
                         <span className="dot orange"></span>
-                        Rapporteret
+                        Reported
                     </button>
                 </div>
 
@@ -109,11 +109,11 @@ export default function NyhederPage() {
                         <Link href={`/event/${event.slug}`} key={event.id} className="news-card">
                             <div className="card-header">
                                 <span className={`status-badge ${event.status?.toLowerCase() || 'reported'}`}>
-                                    {event.status === 'VERIFIED' ? 'Bekræftet' :
-                                        event.status === 'REPORTED' ? 'Rapporteret' : 'Ubekræftet'}
+                                    {event.status === 'VERIFIED' ? 'Verified' :
+                                        event.status === 'REPORTED' ? 'Reported' : 'Unverified'}
                                 </span>
                                 <span className="card-time" suppressHydrationWarning>
-                                    {new Date(event.timestamp).toLocaleDateString('da-DK', {
+                                    {new Date(event.timestamp).toLocaleDateString('en-US', {
                                         day: 'numeric',
                                         month: 'short',
                                         hour: '2-digit',
@@ -121,14 +121,14 @@ export default function NyhederPage() {
                                     })}
                                 </span>
                             </div>
-                            <h2 className="card-title">{event.danishTitle || event.title}</h2>
+                            <h2 className="card-title">{event.title || event.danishTitle}</h2>
                             <div className="card-meta">
                                 <span className="country">
                                     {getCountryEmoji(event.country || 'Global')} {event.country || 'Global'}
                                 </span>
                                 {event.sources && event.sources.length > 0 && (
                                     <span className="sources">
-                                        {event.sources.length} kilde{event.sources.length !== 1 ? 'r' : ''}
+                                        {event.sources.length} source{event.sources.length !== 1 ? 's' : ''}
                                     </span>
                                 )}
                             </div>

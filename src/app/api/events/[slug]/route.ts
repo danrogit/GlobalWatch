@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getEventBySlug } from '@/lib/gdelt/store';
+import { getEventBySlug } from '@/lib/db/events';
 
 interface RouteParams {
     params: Promise<{ slug: string }>;
